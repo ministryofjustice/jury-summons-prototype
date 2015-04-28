@@ -1,0 +1,38 @@
+{{<layout}}
+
+{{$pagecontent}}
+
+  <h1 class="heading-xlarge">Jury Summons</h1>
+
+  <div class="text">
+    <p class="lede">Please enter your juror number which can be found on the letter you received.</p>
+  </div>
+  
+  {{#errors}}
+  <div class="validation-summary">
+    <h1>There was a problem submitting the form</h1>
+    <p>Because of the following problems:</p>
+    <ol>
+      {{#errors.jurorNumber}}<li class="validation-message">{{ errors.jurorNumber }}</li>{{/errors.jurorNumber}}
+    </ol>
+  </div>
+  {{/errors}}
+
+  <form class="form" action="/login" method="get">
+    <div class="form-group{{#errors.jurorNumber}} validation-error{{/errors.jurorNumber}}">
+      <label class="form-label-bold" for="juror-number">
+        Juror number
+        {{#errors.jurorNumber}}<span class="validation-message">{{ errors.jurorNumber }}</span>{{/errors.jurorNumber}}
+      </label>
+      <p class="form-hint">Eg. 429/12/1235</p>
+      <input type="text" class="form-control" id="juror-number" name="jurorNumber" value="{{ jurorNumber }}">
+    </div>
+
+    <div class="form-group">
+      <input type="submit" value="Login" class="button">
+    </div>
+  </form>
+
+{{/pagecontent}}
+
+{{/layout}}
