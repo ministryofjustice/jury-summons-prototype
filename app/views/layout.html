@@ -4,11 +4,33 @@
   {{>includes/head}}
 {{/head}}
 
+{{$pageTitle}}
+  Jury Summons
+{{/pageTitle}}
+
 {{$propositionHeader}}
   {{>includes/propositional_navigation}}
 {{/propositionHeader}}
 
 {{$headerClass}}with-proposition{{/headerClass}}
+
+{{$content}}
+  <main id="content" role="main">
+    {{>includes/phase_banner}}
+
+    {{$pagecontent}}{{/pagecontent}}
+  </main>
+{{/content}}
+
+{{$footerSupportLinks}}
+  <h2 class="visuallyhidden">Support links</h2>
+  <ul>
+    <li><a href="https://gov.uk/help">Help</a></li>
+    <li><a href="https://gov.uk/help/cookies">Cookies</a></li>
+    <li><a href="https://gov.uk/contact">Contact</a></li>
+    <li>Built by <a href="https://mojdigital.blog.gov.uk/"><abbr title="Ministry of Justice">MOJ</abbr> Digital</a></li>
+  </ul>
+{{/footerSupportLinks}}
 
 {{$bodyEnd}}
   {{>includes/scripts}}
