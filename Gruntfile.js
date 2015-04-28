@@ -88,18 +88,34 @@ module.exports = function(grunt){
         options: {
           ext: 'js',
           ignore: ['node_modules/**', 'app/assets/**', 'public/**'],
-          args: grunt.option.flags()
+          args: grunt.option.flags(),
+        }
+      }
+    },
+
+    browserSync: {
+      dev: {
+        bsFiles: {
+          src: ['public/**', 'app/views/**']
+        },
+        options: {
+          open: false,
+          proxy: 'localhost:3000',
+          port: 4000,
+          ui: {
+            port: 4001
+          }
         }
       }
     },
 
     concurrent: {
-        target: {
-            tasks: ['watch', 'nodemon'],
-            options: {
-                logConcurrentOutput: true
-            }
+      target: {
+        tasks: ['watch', 'nodemon', 'browserSync'],
+        options: {
+          logConcurrentOutput: true
         }
+      }
     }
   });
 
@@ -107,6 +123,7 @@ module.exports = function(grunt){
     'grunt-contrib-copy',
     'grunt-contrib-watch',
     'grunt-contrib-clean',
+    'grunt-browser-sync',
     'grunt-sass',
     'grunt-nodemon',
     'grunt-text-replace',
@@ -142,7 +159,7 @@ module.exports = function(grunt){
   grunt.event.on('watch', function(action, filepath, target) {
 
     // just copy the asset that was changed, not all of them
-
+    grunt.log.writeln('changing');
     if (target == "assets"){
       grunt.config('copy.assets.files.0.src', filepath.replace("app/assets/",""));
     }
