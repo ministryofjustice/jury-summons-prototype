@@ -1,58 +1,63 @@
 // Validation summary box
+$validation-bg: #fef7f7;
 
 .validation-summary {
   border: 3px solid $error-colour;
-  padding: $gutter-half $gutter;
+  background-color: $validation-bg;
   margin-bottom: $gutter;
+  margin-left: -($gutter-half);
+  padding: $gutter-half;
 
   @include ie-lte(6){
     zoom: 1;
   }
-}
 
-.validation-summary ul {
-  margin-top: 10px;
-}
-
-.validation-summary li,
-.validation-summary p {
-  @include core-16;
-}
-
-.validation-summary p {
-  margin-top: $gutter-half;
-  margin-bottom: 5px;
-}
-
-.validation-summary a {
-  color: $error-colour;
-  @include ie-lte(6) {
-    color: $error-colour !important;
+  h1 {
+    @include bold-24;
   }
-}
 
-.validation-summary .heading-small {
-  margin-top: $gutter-half;
+  ol
+  ul, {
+    @include core-19;
+    margin-top: 10px;
+  }
+
+  p {
+    @include core-19;
+    margin-top: $gutter-half;
+    margin-bottom: 5px;
+  }
+
+  a {
+    color: $error-colour;
+    @include ie-lte(6) {
+      color: $error-colour !important;
+    }
+  }
+
+  .heading-small {
+    margin-top: $gutter-half;
+  }
 }
 
 
 // Validation error message box
-// .validation-error {
-//   clear: both;
-//   @extend %contain-floats;
-//   border-left: 3px solid $error-colour;
-//   padding: $gutter- $gutter;
-//   margin-bottom: $gutter-half;
-//   margin-left: -($gutter);
-// }
+.validation-error {
+  clear: both;
+  @extend %contain-floats;
+  border-left: 3px solid $error-colour;
+  background-color: $validation-bg;
+  padding: $gutter-half;
+  margin-left: -($gutter-half);
+}
 
-// .validation-error .form-group {
-//   margin-bottom: 20px;
-// }
+.validation-error .form-group {
+  margin-bottom: 20px;
+}
 
-// .validation-error p {
-//   margin-bottom: 10px;
-// }
+.validation-error p {
+  margin-bottom: 10px;
+}
 
 
 // Validation message
