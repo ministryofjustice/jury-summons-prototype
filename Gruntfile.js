@@ -96,7 +96,7 @@ module.exports = function(grunt){
     browserSync: {
       dev: {
         bsFiles: {
-          src: ['public/**', 'app/views/**']
+          src: ['public/**', 'app/views/**', 'app/routes.js', 'data/**']
         },
         options: {
           open: false,
