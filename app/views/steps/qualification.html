@@ -1,0 +1,77 @@
+{{<form_layout}}
+
+{{$pagetitle}}Are you qualified?{{/pagetitle}}
+
+{{$formcontent}}  
+  
+  <fieldset class="form-group">
+    <legend class="form-label">Have you lived in the UK, channel islands or ...?</legend>
+    <p class="form-hint">Extra help text area to give more information</p>
+    
+    <div class="inline">
+      <label for="residence-yes" class="block-label">
+        <input type="radio" value="1" id="residence-yes" name="residence">
+        Yes
+      </label>
+
+      <label for="residence-no" class="block-label">
+        <input type="radio" value="0" id="residence-no" name="residence">
+        No
+      </label>
+    </div>
+  </fieldset>
+  
+  <fieldset class="form-group">
+    <legend class="form-label">Question about the mental capabilities...?</legend>
+    <p class="form-hint">Extra help text area to give more information</p>
+    
+    <div class="inline">
+      <label for="mental-health-yes" class="block-label">
+        <input type="radio" value="1" id="mental-health-yes" name="mental-health">
+        Yes
+      </label>
+
+      <label for="mental-health-no" class="block-label">
+        <input type="radio" value="0" id="mental-health-no" name="mental-health">
+        No
+      </label>
+    </div>
+  </fieldset>
+  
+  <fieldset class="form-group">
+    <legend class="form-label">Are you on bail?</legend>
+    <p class="form-hint">Extra help text area to give more information</p>
+    
+    <div class="inline">
+      <label for="bail-yes" class="block-label">
+        <input type="radio" value="1" id="bail-yes" name="bail">
+        Yes
+      </label>
+
+      <label for="bail-no" class="block-label">
+        <input type="radio" value="0" id="bail-no" name="bail">
+        No
+      </label>
+    </div>
+  </fieldset>
+  
+  <fieldset class="form-group">
+    <legend class="form-label">Have you even been convicted?</legend>
+    <p class="form-hint">Extra help text area to give more information</p>
+    
+    <div class="inline">
+      <label for="convictions-yes" class="block-label">
+        <input type="radio" value="1" id="convictions-yes" name="convictions">
+        Yes
+      </label>
+
+      <label for="convictions-no" class="block-label">
+        <input type="radio" value="0" id="convictions-no" name="convictions">
+        No
+      </label>
+    </div>
+  </fieldset>
+
+{{/formcontent}}
+
+{{/form_layout}}

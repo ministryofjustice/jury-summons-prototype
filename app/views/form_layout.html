@@ -1,0 +1,22 @@
+{{<layout}}
+
+{{$pagecontent}}
+
+  
+  <form class="form" action="{{ next }}" method="get">
+    <h1 class="form-title heading-large">{{$pagetitle}}{{/pagetitle}}</h1>
+
+    {{$formcontent}}{{/formcontent}}
+
+    <!-- Primary buttons, secondary links -->
+    <div class="form-group">
+      <input type="submit" class="button" value="Continue">
+      <ul>
+        <li><a href="{{ previous }}">Back</a></li>
+      </ul>
+    </div>
+  </form>
+
+{{/pagecontent}}
+
+{{/layout}}
