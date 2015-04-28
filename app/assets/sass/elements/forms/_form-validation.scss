@@ -30,8 +30,13 @@ $validation-bg: #fef7f7;
 
   a {
     color: $error-colour;
+    text-decoration: none;
     @include ie-lte(6) {
       color: $error-colour !important;
+    }
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 
