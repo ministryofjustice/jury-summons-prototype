@@ -2,7 +2,23 @@
 
 {{$pagetitle}}Occupation{{/pagetitle}}
 
-{{$formcontent}}  
+{{$formcontent}}
+
+  <fieldset class="form-group">
+    <legend class="form-label">Have you in the last 5 years been in the police, CPS, or...?</legend>
+    
+    <div class="inline">
+      <label for="occupation-yes" class="block-label">
+        <input type="radio" value="1" id="occupation-yes" name="occupation">
+        Yes
+      </label>
+
+      <label for="occupation-no" class="block-label">
+        <input type="radio" value="0" id="occupation-no" name="occupation">
+        No
+      </label>
+    </div>
+  </fieldset>
 
 {{/formcontent}}
 
