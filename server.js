@@ -30,6 +30,13 @@ app.use('/public', express.static(__dirname + '/public'));
 app.use('/public', express.static(__dirname + '/govuk_modules/govuk_template/assets'));
 app.use('/public', express.static(__dirname + '/govuk_modules/govuk_frontend_toolkit'));
 
+// Session storage
+app.use(express.cookieParser());
+app.use(express.session({secret: '1234567890QWERTY'}));
+
+// parse forms
+app.use(express.bodyParser());
+
 app.use(express.favicon(path.join(__dirname, 'govuk_modules', 'govuk_template', 'assets', 'images','favicon.ico'))); 
 
 

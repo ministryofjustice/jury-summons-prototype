@@ -24,8 +24,9 @@
     "grunt-text-replace": "0.3.12",
     "hogan.js": "3.0.2",
     "minimist": "0.0.8",
-    "node-sass": "1.2.3",
+    "node-sass": "2.1.1",
     "readdir": "0.0.6",
+    "underscore": "^1.8.3",
     "yamljs": "^0.2.1"
   }
 }
