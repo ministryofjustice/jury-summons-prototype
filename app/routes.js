@@ -1,4 +1,14 @@
 var YAML = require('yamljs');
+var _ = require('underscore');
+
+function parseCheckboxes (formData) {
+  _.each(formData, function (value, key) {
+    if (value === '1' || value === '0') {
+      formData[key] = parseInt(value);
+    }
+  });
+  return formData;
+}
 
 module.exports = {
   bind : function (app) {
@@ -35,7 +45,7 @@ module.exports = {
       }
     });
 
-    app.get('/your-service/:step?', function (req, res) {
+    app.all('/your-service/:step?', function (req, res) {
       var steps = YAML.load(__dirname + '/../data/steps.yml');
       var index = req.params.step ? parseInt(req.params.step) : 0;
       var prefix = '/your-service/';
@@ -43,6 +53,15 @@ module.exports = {
         next: index < steps.length ? prefix + (index + 1) : null,
         previous: index > 1 ? prefix + (index - 1) : prefix
       };
+
+      // create property if it doesn't already exist
+      req.session.formData = req.session.formData || {};
+      // save form data to session
+      var formData = _.extend(req.session.formData, req.body);
+      // parse true/false values for checkboxes
+      formData = parseCheckboxes(formData);
+
+      req.session.formData = data.formData = formData;
 
       res.render('steps/' + steps[index], data);
     });

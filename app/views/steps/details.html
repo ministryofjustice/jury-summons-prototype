@@ -6,20 +6,20 @@
   <!-- Title -->
   <div class="form-group">
     <label class="form-label-bold" for="title">Title</label>
-    <input type="text" class="form-control" id="title" name="title">
+    <input type="text" class="form-control" id="title" name="title" value="{{ formData.title }}">
   </div>
 
   <!-- Full name -->
   <div class="form-group">
     <label class="form-label-bold" for="full-name">Full name</label>
     <p class="form-hint">As shown on your Jury Summons</p>
-    <input type="text" class="form-control" id="full-name" name="full-name">
+    <input type="text" class="form-control" id="full-name" name="fullName" value="{{ formData.fullName }}">
   </div>
 
   <!-- Address -->
   <div class="form-group">
     <label class="form-label-bold" for="address">Address</label>
-    <textarea class="form-control" id="address" name="address" rows="4"></textarea>
+    <textarea class="form-control" id="address" name="address" rows="4">{{ formData.address }}</textarea>
   </div>
 
   <!-- Date of birth -->
@@ -33,17 +33,17 @@
 
         <div class="form-group form-group-day">
           <label for="dob-day">Day</label>
-          <input class="form-control" id="dob-day" type="number" pattern="[0-9]*" min="0" max="31">
+          <input class="form-control" id="dob-day" name="dobDay" type="number" pattern="[0-9]*" min="0" max="31" value="{{ formData.dobDay }}">
         </div>
 
         <div class="form-group form-group-month">
           <label for="dob-month">Month</label>
-          <input class="form-control" id="dob-month" type="number" pattern="[0-9]*" min="0" max="12">
+          <input class="form-control" id="dob-month" name="dobMonth" type="number" pattern="[0-9]*" min="0" max="12" value="{{ formData.dobMonth }}">
         </div>
 
         <div class="form-group form-group-year">
           <label for="dob-year">Year</label>
-          <input class="form-control" id="dob-year" type="number" pattern="[0-9]*" min="0" max="2014">
+          <input class="form-control" id="dob-year" name="dobYear" type="number" pattern="[0-9]*" min="0" max="2014" value="{{ formData.dobYear }}">
         </div>
       </div>
 
@@ -67,19 +67,19 @@
   <!-- Email address -->
   <div class="form-group">
     <label class="form-label-bold" for="email">Email address</label>
-    <input type="email" class="form-control" id="email" name="email">
+    <input type="email" class="form-control" id="email" name="email" value="{{ formData.email }}">
   </div>
 
   <!-- Phone -->
   <div class="form-group">
     <label class="form-label-bold" for="phone">Phone</label>
-    <input type="text" class="form-control" id="phone" name="phone">
+    <input type="text" class="form-control" id="phone" name="phone" value="{{ formData.phone }}">
   </div>
 
   <!-- Alternative phone-->
   <div class="form-group">
     <label class="form-label-bold" for="alternative-phone">Alternative phone (optional) </label>
-    <input type="text" class="form-control" id="alternative-phone" name="alternative-phone">
+    <input type="text" class="form-control" id="alternative-phone" name="altPhone" value="{{ formData.altPhone }}">
   </div>
 {{/formcontent}}
 

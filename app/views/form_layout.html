@@ -3,10 +3,12 @@
 {{$pagecontent}}
 
   
-  <form class="form" action="{{ next }}" method="get">
+  <form class="form" action="{{ next }}" method="post">
     <h1 class="form-title heading-large">{{$pagetitle}}{{/pagetitle}}</h1>
 
     {{$formcontent}}{{/formcontent}}
+
+    {{session}}
 
     <!-- Primary buttons, secondary links -->
     <div class="form-group">

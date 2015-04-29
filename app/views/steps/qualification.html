@@ -10,12 +10,12 @@
     
     <div class="inline">
       <label for="residence-yes" class="block-label">
-        <input type="radio" value="1" id="residence-yes" name="residence">
+        <input type="radio" value="1" id="residence-yes" name="residence"{{#formData.residence}} checked="checked"{{/formData.residence}}>
         Yes
       </label>
 
       <label for="residence-no" class="block-label">
-        <input type="radio" value="0" id="residence-no" name="residence">
+        <input type="radio" value="0" id="residence-no" name="residence"{{^formData.residence}} checked="checked"{{/formData.residence}}>
         No
       </label>
     </div>
@@ -27,12 +27,12 @@
     
     <div class="inline">
       <label for="mental-health-yes" class="block-label">
-        <input type="radio" value="1" id="mental-health-yes" name="mental-health">
+        <input type="radio" value="1" id="mental-health-yes" name="mentalHealth"{{#formData.mentalHealth}} checked="checked"{{/formData.mentalHealth}}>
         Yes
       </label>
 
       <label for="mental-health-no" class="block-label">
-        <input type="radio" value="0" id="mental-health-no" name="mental-health">
+        <input type="radio" value="0" id="mental-health-no" name="mentalHealth"{{^formData.mentalHealth}} checked="checked"{{/formData.mentalHealth}}>
         No
       </label>
     </div>
@@ -44,12 +44,12 @@
     
     <div class="inline">
       <label for="bail-yes" class="block-label">
-        <input type="radio" value="1" id="bail-yes" name="bail">
+        <input type="radio" value="1" id="bail-yes" name="bail"{{#formData.bail}} checked="checked"{{/formData.bail}}>
         Yes
       </label>
 
       <label for="bail-no" class="block-label">
-        <input type="radio" value="0" id="bail-no" name="bail">
+        <input type="radio" value="0" id="bail-no" name="bail"{{^formData.bail}} checked="checked"{{/formData.bail}}>
         No
       </label>
     </div>
@@ -61,12 +61,12 @@
     
     <div class="inline">
       <label for="convictions-yes" class="block-label">
-        <input type="radio" value="1" id="convictions-yes" name="convictions">
+        <input type="radio" value="1" id="convictions-yes" name="convictions"{{#formData.convictions}} checked="checked"{{/formData.convictions}}>
         Yes
       </label>
 
       <label for="convictions-no" class="block-label">
-        <input type="radio" value="0" id="convictions-no" name="convictions">
+        <input type="radio" value="0" id="convictions-no" name="convictions"{{^formData.convictions}} checked="checked"{{/formData.convictions}}>
         No
       </label>
     </div>
