@@ -4,6 +4,8 @@
   {{>includes/head}}
 {{/head}}
 
+{{$bodyClasses}}" ng-app="app{{/bodyClasses}}
+
 {{$pageTitle}}
   Jury Summons
 {{/pageTitle}}
@@ -18,7 +20,7 @@
   <main id="content" role="main">
     {{>includes/phase_banner}}
 
-    {{$pagecontent}}{{/pagecontent}}
+    <div ui-view></div>
   </main>
 {{/content}}
 

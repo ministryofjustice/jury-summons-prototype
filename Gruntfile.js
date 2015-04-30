@@ -45,7 +45,7 @@ module.exports = function(grunt){
         files: [{
           expand: true,
           cwd: 'app/assets/',
-          src: ['**/*', '!sass/**'],
+          src: ['**/*', '!sass/**', '!javascripts/app/**/*', '!javascripts/app'],
           dest: 'public/'
         },
         {
@@ -66,6 +66,25 @@ module.exports = function(grunt){
           'angular-ui-router': 'angular'
         }
       }
+    },
+
+    ngtemplates:  {
+      app: {
+        cwd: 'app/assets/javascripts/app',
+        src: '**/*.html',
+        dest: 'app/assets/javascripts/app/templates.js'
+      }
+    },
+
+    ngAnnotate: {
+      options: {
+        singleQuotes: true
+      },
+      app: {
+        files: {
+          'public/javascripts/app.js': ['app/assets/javascripts/app/**/*.module.js', 'app/assets/javascripts/app/**/*.js']
+        }
+      },
     },
 
     // workaround for libsass
@@ -91,7 +110,7 @@ module.exports = function(grunt){
       },
       assets:{
         files: ['app/assets/**/*', '!app/assets/sass/**'],
-        tasks: ['copy:assets'],
+        tasks: ['copy:assets', 'ngtemplates', 'ngAnnotate'],
         options: {
           spawn: false,
         }
@@ -152,7 +171,9 @@ module.exports = function(grunt){
     'grunt-nodemon',
     'grunt-text-replace',
     'grunt-concurrent',
-    'grunt-bower-concat'
+    'grunt-bower-concat',
+    'grunt-ng-annotate',
+    'grunt-angular-templates'
   ].forEach(function (task) {
     grunt.loadNpmTasks(task);
   });
@@ -172,6 +193,8 @@ module.exports = function(grunt){
     'clean',
     'copy',
     'bower_concat',
+    'ngtemplates',
+    'ngAnnotate',
     'convert_template',
     'replace',
     'sass'
