@@ -57,6 +57,17 @@ module.exports = function(grunt){
       }
     },
 
+    // concatinate all bower packages
+    bower_concat: {
+      all: {
+        dest: 'public/javascripts/lib.js',
+        dependencies: {
+          'angular': 'jquery',
+          'angular-ui-router': 'angular'
+        }
+      }
+    },
+
     // workaround for libsass
     replace: {
       fixSass: {
@@ -81,6 +92,13 @@ module.exports = function(grunt){
       assets:{
         files: ['app/assets/**/*', '!app/assets/sass/**'],
         tasks: ['copy:assets'],
+        options: {
+          spawn: false,
+        }
+      },
+      packages:{
+        files: ['bower_components/**/*'],
+        tasks: ['bower_concat'],
         options: {
           spawn: false,
         }
@@ -133,7 +151,8 @@ module.exports = function(grunt){
     'grunt-sass',
     'grunt-nodemon',
     'grunt-text-replace',
-    'grunt-concurrent'
+    'grunt-concurrent',
+    'grunt-bower-concat'
   ].forEach(function (task) {
     grunt.loadNpmTasks(task);
   });
@@ -152,6 +171,7 @@ module.exports = function(grunt){
   grunt.registerTask('generate-assets', [
     'clean',
     'copy',
+    'bower_concat',
     'convert_template',
     'replace',
     'sass'
