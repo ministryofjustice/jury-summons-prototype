@@ -5,4 +5,4 @@ public
 govuk_modules
 node_modules/*
 bower_components/
-app/assets/javascripts/app/templates.js
+.tmp/
