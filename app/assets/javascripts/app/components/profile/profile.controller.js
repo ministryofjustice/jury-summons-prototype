@@ -5,17 +5,23 @@
     .module('app.profile')
     .controller('ProfileController', ProfileController);
 
-  ProfileController.$inject = [];
+  ProfileController.$inject = ['AuthService', 'FormDataService', '$state'];
 
   /* @ngInject */
-  function ProfileController() {
+  function ProfileController(AuthService, FormDataService, $state) {
     var vm = this;
-    vm.title = 'ProfileController';
-
-    activate();
+    vm.juror = AuthService.getJuror();
+    vm.formData = FormDataService.getData();
+    vm.submit = submit;
 
     ////////////////
 
-    function activate() {}
+    function submit () {
+      var nextStep = FormDataService.getNextStep($state.current.name);
+
+      FormDataService.saveData(vm.formData);
+
+      $state.go(nextStep);
+    }
   }
 })();

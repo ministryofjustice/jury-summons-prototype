@@ -1,8 +1,26 @@
 h1.heading-xlarge Your jury service
-p
-  a(ui-sref='personalDetails') Personal details
-p
-  a(ui-sref='login') Login
-form(action='')
+p Please find the date and court details below.
+.panel-indent.panel-background
+  p.bold-medium
+    | {{ vm.juror.court }}
+    br
+    | {{ vm.juror.datetime | date:'H:mma, d MMMM yyyy'}}
+  p 
+    | {{ vm.juror.name }}
+    br
+    | {{ vm.juror.address }}
+
+form(name='profileForm', ng-submit='vm.submit()', novalidate)
+  fieldset.form-group
+    legend.form-label What would you like to do?
+    label.block-label(for='accept')
+      input(type='radio', value='accept', id='accept', name='response', ng-model='vm.formData.response')
+      | Complete
+    label.block-label(for='delay')
+      input(type='radio', value='delay', id='delay', name='response', ng-model='vm.formData.response')
+      | Delay
+    label.block-label(for='excuse')
+      input(type='radio', value='excuse', id='excuse', name='response', ng-model='vm.formData.response')
+      | Be excused
   .form-group
-    input.button(type='submit', value='Complete my application')
+    input.button(type='submit', value='Start')

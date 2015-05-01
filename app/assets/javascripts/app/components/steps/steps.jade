@@ -1,0 +1,7 @@
+form(name='stepForm', ng-submit='vm.submitStep(stepForm)', novalidate)
+  div(ui-view='form')
+  .form-group
+    input(type='submit', class='button', value='Continue')
+    ul
+      li
+        a(href='', ng-click='vm.gotoPrevStep()') Back

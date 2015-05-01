@@ -8,7 +8,15 @@
         name: 'John Smith',
         address: '211, West Block, London SE1 7GL',
         court: 'Blackfriars Crown Court',
-        datetime: '20/09/2015 9:15'
+        datetime: '2015-09-20T09:15'
       }
     })
+    .constant('STEPS', [
+      'profile',
+      'steps.personal-details',
+      'steps.qualification',
+      'steps.disabilities',
+      'steps.occupation',
+      'confirmation'
+    ]);
 })(); 

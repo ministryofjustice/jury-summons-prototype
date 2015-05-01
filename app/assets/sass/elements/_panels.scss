@@ -7,8 +7,11 @@
   clear: both;
   border-left: 4px solid $border-colour;
 
-  padding: 10px 0 10px $gutter-half;
+  padding: 20px 0 20px $gutter-half;
   margin: ($gutter $gutter-half $gutter*1.5 0);
+}
+.panel-background {
+  background-color: $grey-4;
 }
 
 .panel-indent legend {

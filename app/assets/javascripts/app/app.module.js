@@ -6,5 +6,6 @@
       'app.core',
       'app.auth',
       'app.profile',
+      'app.steps',
     ]);
 })();
