@@ -1,0 +1,30 @@
+<h1 class="heading-xlarge">Jury Summons</h1>
+
+<div class="text">
+  <p class="lede">Please enter your juror number which can be found at the top of your Jury Summons.</p>
+</div>
+
+<div class="validation-summary" ng-show="loginForm.$submitted && loginForm.$invalid">
+  <h1>There was a problem submitting the form</h1>
+  <p>Because of the following problems:</p>
+  <ol>
+    <li class="validation-message" ng-show="loginForm.jurorNumber.$error.required"><a href="#juror-number">Juror number - cannot be blank</a></li>
+    <li class="validation-message" ng-show="loginForm.jurorNumber.$error.valid"><a href="#juror-number">Juror number - is either invalid or not on our system</a></li>
+  </ol>
+</div>
+
+<form class="form" name="loginForm" ng-submit="vm.login(loginForm)" novalidate>
+  <div class="form-group" ng-class="{'validation-error': loginForm.$submitted && !loginForm.jurorNumber.$valid}">
+    <label class="form-label-bold" for="juror-number">
+      Juror number
+      <span class="validation-message" ng-show="loginForm.$submitted && loginForm.jurorNumber.$error.required">cannot be blank</span>
+      <span class="validation-message" ng-show="loginForm.$submitted && loginForm.jurorNumber.$error.valid">is either invalid or not on our system</span>
+    </label>
+    <p class="form-hint">For example, 5 429 1234</p>
+    <input type="text" class="form-control" id="juror-number" name="jurorNumber" ng-model="vm.jurorNumber" required>
+  </div>
+
+  <div class="form-group">
+    <input type="submit" value="Login" class="button">
+  </div>
+</form>
