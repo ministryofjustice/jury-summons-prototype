@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('blocks.router', [
+    angular.module('core.router', [
         'ui.router'
     ]);
 })();

@@ -2,8 +2,7 @@
   'use strict';
 
   angular
-    .module('app.auth', [
-      'app.core',
+    .module('core.formData', [
       'ngStorage'
     ]);
 })();

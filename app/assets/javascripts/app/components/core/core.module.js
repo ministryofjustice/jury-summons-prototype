@@ -4,6 +4,7 @@
   angular
     .module('app.core', [
       'ui.router',
-      'blocks.router',
+      'core.router',
+      'core.formData',
     ]);
 })();
