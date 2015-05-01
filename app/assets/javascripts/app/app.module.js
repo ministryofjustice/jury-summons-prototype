@@ -7,5 +7,6 @@
       'app.auth',
       'app.profile',
       'app.steps',
+      'app.confirmation',
     ]);
 })();

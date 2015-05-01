@@ -22,7 +22,6 @@
     }
 
     function submitStep (form) {
-      console.log('submitting');
       var nextStep = FormDataService.getNextStep($state.current.name);
 
       FormDataService.saveData(vm.formData);
