@@ -1,7 +1,7 @@
 module.exports = function(grunt){
   grunt.initConfig({
     // Clean
-    clean: ['public', 'govuk_modules'],
+    clean: ['public', 'govuk_modules', '.tmp'],
 
     // Builds Sass
     sass: {
@@ -68,21 +68,36 @@ module.exports = function(grunt){
       }
     },
 
-    ngtemplates:  {
-      app: {
-        cwd: 'app/assets/javascripts/app',
-        src: '**/*.html',
-        dest: 'app/assets/javascripts/app/templates.js'
+    // convert jade template to html for angular template cache
+    jade: {
+      angular: {
+        files: [{
+          expand: true,
+          cwd: 'app/assets/javascripts/app',
+          src: ['**/*.jade'],
+          dest: '.tmp/templates/',
+          ext: '.html'
+        }]
       }
     },
 
+    // add templates to angular template cache
+    ngtemplates:  {
+      app: {
+        cwd: '<%= jade.angular.files[0].dest %>',
+        src: '**/*.html',
+        dest: '.tmp/templates/templates.js'
+      }
+    },
+
+    // concat angular app using ngAnnotate
     ngAnnotate: {
       options: {
         singleQuotes: true
       },
       app: {
         files: {
-          'public/javascripts/app.js': ['app/assets/javascripts/app/**/*.module.js', 'app/assets/javascripts/app/**/*.js']
+          'public/javascripts/app.js': ['app/assets/javascripts/app/**/*.module.js', 'app/assets/javascripts/app/**/*.js', '<%= ngtemplates.app.dest %>']
         }
       },
     },
@@ -110,7 +125,7 @@ module.exports = function(grunt){
       },
       assets:{
         files: ['app/assets/**/*', '!app/assets/sass/**'],
-        tasks: ['copy:assets', 'ngtemplates', 'ngAnnotate'],
+        tasks: ['copy:assets', 'jade', 'ngtemplates', 'ngAnnotate'],
         options: {
           spawn: false,
         }
@@ -173,6 +188,7 @@ module.exports = function(grunt){
     'grunt-concurrent',
     'grunt-bower-concat',
     'grunt-ng-annotate',
+    'grunt-contrib-jade',
     'grunt-angular-templates'
   ].forEach(function (task) {
     grunt.loadNpmTasks(task);
@@ -193,6 +209,7 @@ module.exports = function(grunt){
     'clean',
     'copy',
     'bower_concat',
+    'jade',
     'ngtemplates',
     'ngAnnotate',
     'convert_template',
