@@ -1,21 +1,21 @@
 h1.heading-xlarge Jury Summons
-  .text
-    p.lede Please enter your juror number which can be found at the top of your Jury Summons.
-  .validation-summary(ng-show='loginForm.$submitted && loginForm.$invalid')
-    h1 There was a problem submitting the form
-    p Because of the following problems:
-    ol
-      li.validation-message(ng-show='loginForm.jurorNumber.$error.required')
-        a(href='#juror-number') Juror number - cannot be blank
-      li.validation-message(ng-show='loginForm.jurorNumber.$error.valid')
-        a(href='#juror-number') Juror number - is either invalid or not on our system
-  form.form(name='loginForm', ng-submit='vm.login(loginForm)', novalidate='')
-    .form-group(ng-class="{'validation-error': loginForm.$submitted && !loginForm.jurorNumber.$valid}")
-      label.form-label-bold(for='juror-number')
-        | Juror number
-        span.validation-message(ng-show='loginForm.$submitted && loginForm.jurorNumber.$error.required') cannot be blank
-        span.validation-message(ng-show='loginForm.$submitted && loginForm.jurorNumber.$error.valid') is either invalid or not on our system
-      p.form-hint For example, 5 429 1234
-      input#juror-number.form-control(type='text', name='jurorNumber', ng-model='vm.jurorNumber', required='')
-    .form-group
-      input.button(type='submit', value='Login')
+.text
+  p.lede Please enter your juror number which can be found at the top of your Jury Summons.
+.validation-summary(ng-show='loginForm.$submitted && loginForm.$invalid')
+  h1 There was a problem submitting the form
+  p Because of the following problems:
+  ol
+    li.validation-message(ng-show='loginForm.jurorNumber.$error.required')
+      a(href='#juror-number') Juror number - cannot be blank
+    li.validation-message(ng-show='loginForm.jurorNumber.$error.valid')
+      a(href='#juror-number') Juror number - is either invalid or not on our system
+form.form(name='loginForm', ng-submit='vm.login(loginForm)', novalidate='')
+  .form-group(ng-class="{'validation-error': loginForm.$submitted && !loginForm.jurorNumber.$valid}")
+    label.form-label-bold(for='juror-number')
+      | Juror number
+      span.validation-message(ng-show='loginForm.$submitted && loginForm.jurorNumber.$error.required') cannot be blank
+      span.validation-message(ng-show='loginForm.$submitted && loginForm.jurorNumber.$error.valid') is either invalid or not on our system
+    p.form-hint For example, 5 429 1234
+    input#juror-number.form-control(type='text', name='jurorNumber', ng-model='vm.jurorNumber', required='')
+  .form-group
+    input.button(type='submit', value='Login')
