@@ -23,7 +23,7 @@
         }
       },
       {
-        state: 'steps.personal-details',
+        state: 'steps.details',
         config: {
           url: '/your-details',
           views: {
@@ -67,12 +67,12 @@
         }
       },
       {
-        state: 'steps.confirmation',
+        state: 'steps.summary',
         config: {
           url: '/summary',
           views: {
             'form': {
-              templateUrl: 'components/steps/confirmation.html'
+              templateUrl: 'components/steps/summary.html'
             }
           }
         }

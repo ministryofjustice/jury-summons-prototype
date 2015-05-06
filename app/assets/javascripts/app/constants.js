@@ -21,7 +21,7 @@
         title: 'Profile'
       },
       {
-        route: 'steps.personal-details',
+        route: 'steps.details',
         title: 'Your details'
       },
       {
@@ -37,7 +37,7 @@
         title: 'Your occupation'
       },
       {
-        route: 'steps.confirmation',
+        route: 'steps.summary',
         title: 'Check your details'
       }
     ]);
