@@ -7,14 +7,15 @@
     // vendor libs
     .constant('_', _)
     // app constants
-    .constant('JURORS', {
-      '54291234': {
+    .constant('JURORS', [
+      {
+        id: '54291234',
         name: 'John Smith',
         address: '211, West Block, London SE1 7GL',
         court: 'Blackfriars Crown Court',
         datetime: '2015-09-20T09:15'
       }
-    })
+    ])
     .constant('STEPS', [
       {
         route: 'profile',
