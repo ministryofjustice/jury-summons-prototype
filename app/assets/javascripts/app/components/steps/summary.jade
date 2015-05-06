@@ -1,0 +1,57 @@
+h1.heading-xlarge Check details
+p Check and change any details that are incorrect.
+//- details
+h2.summary-heading
+  | Your details
+  a(ui-sref='steps.details', ui-sref-opts='{reload: true}') Change this
+dl.summary-table.summary-table--inline
+  dt Title:
+  dd.first-child {{ vm.formData['steps.details'].title }}
+  dt Your name:
+  dd {{ vm.formData['steps.details'].name }}
+  dt Address:
+  dd {{ vm.formData['steps.details'].address }}
+  dt Date of Birth:
+  dd {{ vm.formData['steps.details'].dobDay }}/{{ vm.formData['steps.details'].dobMonth }}/{{ vm.formData['steps.details'].dobYear }}
+  dt Email:
+  dd {{ vm.formData['steps.details'].email }}
+  dt Phone:
+  dd {{ vm.formData['steps.details'].phone }}
+  dt Alternative Phone:
+  dd {{ vm.formData['steps.details'].alternativePhone }}
+//- qualification
+h2.summary-heading
+  | Are you qualified?
+  a(ui-sref='steps.qualification', ui-sref-opts='{reload: true}') Change this
+dl.summary-table
+  dt Have you lived in the UK, channel islands or ...?
+  dd {{ vm.formData['steps.qualification'].residence }}
+  dt Question about the mental capabilities...?
+  dd {{ vm.formData['steps.qualification'].mentalHealth }}
+  dt Are you on bail?
+  dd {{ vm.formData['steps.qualification'].bail }}
+  dt Have you been convicted?
+  dd {{ vm.formData['steps.qualification'].convictions }}
+//- disabilities
+h2.summary-heading
+  | Disability and special needs?
+  a(ui-sref='steps.disabilities', ui-sref-opts='{reload: true}') Change this
+dl.summary-table
+  dt Do you have any disability or impairment...?
+  dd {{ vm.formData['steps.disabilities'].disabilities }}
+//- occupation
+h2.summary-heading
+  | Occupation?
+  a(ui-sref='steps.occupation', ui-sref-opts='{reload: true}') Change this
+dl.summary-table
+  dt Have you been in the last 5 years...?
+  dd {{ vm.formData['steps.occupation'].occupation }}
+//- confirm
+h2.summary-heading Submit your form
+p Please check all the information above is correct. This is the last opportunity to change the details of your form online.
+.form-group
+  input(type='submit', class='button', value='Submit form')
+  ul
+    li
+      a(href='', ng-click='vm.cancel()') Cancel and delete all details
+//- step-summary(step='step', data='data', ng-repeat='(step, data) in vm.formData')

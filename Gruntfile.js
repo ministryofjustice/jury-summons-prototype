@@ -1,7 +1,7 @@
 module.exports = function(grunt){
   grunt.initConfig({
     // Clean
-    clean: ['public', 'govuk_modules'],
+    clean: ['public', 'govuk_modules', '.tmp'],
 
     // Builds Sass
     sass: {
@@ -45,7 +45,7 @@ module.exports = function(grunt){
         files: [{
           expand: true,
           cwd: 'app/assets/',
-          src: ['**/*', '!sass/**'],
+          src: ['**/*', '!sass/**', '!javascripts/app/**/*', '!javascripts/app'],
           dest: 'public/'
         },
         {
@@ -55,6 +55,51 @@ module.exports = function(grunt){
           dest: 'public/'
         }]
       }
+    },
+
+    // concatinate all bower packages
+    bower_concat: {
+      all: {
+        dest: 'public/javascripts/lib.js',
+        dependencies: {
+          'angular': 'jquery',
+          'angular-ui-router': 'angular'
+        }
+      }
+    },
+
+    // convert jade template to html for angular template cache
+    jade: {
+      angular: {
+        files: [{
+          expand: true,
+          cwd: 'app/assets/javascripts/app',
+          src: ['**/*.jade'],
+          dest: '.tmp/templates/',
+          ext: '.html'
+        }]
+      }
+    },
+
+    // add templates to angular template cache
+    ngtemplates:  {
+      app: {
+        cwd: '<%= jade.angular.files[0].dest %>',
+        src: '**/*.html',
+        dest: '.tmp/templates/templates.js'
+      }
+    },
+
+    // concat angular app using ngAnnotate
+    ngAnnotate: {
+      options: {
+        singleQuotes: true
+      },
+      app: {
+        files: {
+          'public/javascripts/app.js': ['app/assets/javascripts/app/**/*.module.js', 'app/assets/javascripts/app/**/*.js', '<%= ngtemplates.app.dest %>']
+        }
+      },
     },
 
     // workaround for libsass
@@ -80,7 +125,14 @@ module.exports = function(grunt){
       },
       assets:{
         files: ['app/assets/**/*', '!app/assets/sass/**'],
-        tasks: ['copy:assets'],
+        tasks: ['copy:assets', 'jade', 'ngtemplates', 'ngAnnotate'],
+        options: {
+          spawn: false,
+        }
+      },
+      packages:{
+        files: ['bower_components/**/*'],
+        tasks: ['bower_concat'],
         options: {
           spawn: false,
         }
@@ -133,7 +185,11 @@ module.exports = function(grunt){
     'grunt-sass',
     'grunt-nodemon',
     'grunt-text-replace',
-    'grunt-concurrent'
+    'grunt-concurrent',
+    'grunt-bower-concat',
+    'grunt-ng-annotate',
+    'grunt-contrib-jade',
+    'grunt-angular-templates'
   ].forEach(function (task) {
     grunt.loadNpmTasks(task);
   });
@@ -152,6 +208,10 @@ module.exports = function(grunt){
   grunt.registerTask('generate-assets', [
     'clean',
     'copy',
+    'bower_concat',
+    'jade',
+    'ngtemplates',
+    'ngAnnotate',
     'convert_template',
     'replace',
     'sass'
