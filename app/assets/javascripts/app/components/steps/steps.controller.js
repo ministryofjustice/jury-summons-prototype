@@ -10,10 +10,16 @@
   /* @ngInject */
   function StepsController(FormDataService, $state) {
     var vm = this;
-    vm.formData = FormDataService.getData();
     vm.showActions = showActions;
     vm.gotoPrevStep = gotoPrevStep;
     vm.submitStep = submitStep;
+
+    // send all session data to summary screen
+    if ($state.current.name === 'steps.summary') {
+      vm.formData = FormDataService.getData();
+    } else {
+      vm.formData = FormDataService.getData($state.current.name);
+    }
 
     ////////////////
 
@@ -30,17 +36,21 @@
       var prevStep = FormDataService.getPrevStep($state.current.name);
 
       if (prevStep) {
-        $state.go(prevStep);
+        $state.go(prevStep, null, {reload: true});
       }
     }
 
     function submitStep (form) {
       var nextStep = FormDataService.getNextStep($state.current.name);
+      var data = {};
 
-      FormDataService.saveData(vm.formData);
+      // console.log('submitting:', vm.formData);
+
+      data[$state.current.name] = vm.formData;      
+      FormDataService.saveData(data);
 
       if (nextStep) {
-        $state.go(nextStep);
+        $state.go(nextStep, null, {reload: true});
       }
     }
   }

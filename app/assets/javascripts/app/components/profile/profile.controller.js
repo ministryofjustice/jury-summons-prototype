@@ -11,15 +11,18 @@
   function ProfileController(AuthService, FormDataService, $state) {
     var vm = this;
     vm.juror = AuthService.getJuror();
-    vm.formData = FormDataService.getData();
+    vm.sessionData = FormDataService.getData();
+    vm.formData = vm.sessionData[$state.current.name] || {};
     vm.submit = submit;
 
     ////////////////
 
     function submit () {
       var nextStep = FormDataService.getNextStep($state.current.name);
+      var data = {};
 
-      FormDataService.saveData(vm.formData);
+      data[$state.current.name] = vm.formData;      
+      FormDataService.saveData(data);
 
       $state.go(nextStep);
     }

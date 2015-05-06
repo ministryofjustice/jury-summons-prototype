@@ -21,11 +21,15 @@
     ////////////////
 
     function saveData(data) {
-      formData = $sessionStorage.formData = data;
+      formData = $sessionStorage.formData = angular.extend(formData, data);
     }
 
-    function getData() {
-      return formData;
+    function getData(step) {
+      if (!step) {
+        return formData;
+      }
+
+      return formData[step] || {};
     }
 
     function getPrevStep(currentRoute) {
