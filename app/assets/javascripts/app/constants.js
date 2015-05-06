@@ -1,8 +1,12 @@
+/* global _:false */
 (function () {
   'use strict';
 
   angular
     .module('app')
+    // vendor libs
+    .constant('_', _)
+    // app constants
     .constant('JURORS', {
       '54291234': {
         name: 'John Smith',
