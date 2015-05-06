@@ -51,6 +51,7 @@
 
         $state.go(nextStep, null, {reload: true});
       } else {
+        FormDataService.clearData();
         $state.go('confirmation');
       }
     }
