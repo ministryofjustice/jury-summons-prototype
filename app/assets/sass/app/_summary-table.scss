@@ -1,0 +1,63 @@
+.summary-heading {
+  @include bold-24;
+  border-bottom: 2px solid $grey-2;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+
+  a {
+    @include core-19;
+    float: right;
+  }
+}
+
+.summary-table {
+  @extend %contain-floats;
+  margin-bottom: 30px;
+  
+  dt {
+    border-top: 1px solid $grey-2;
+    color: $grey-1;
+    padding-top: 10px;
+
+    &:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+  }
+  dd {
+    padding-bottom: 5px;
+  }
+
+  &.summary-table--inline {
+    dt, dd {
+      padding-top: 10px;
+      padding-bottom: 5px;
+
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+    dt {
+      float: left;
+      clear: left;
+      width: 40%;
+      border-top: 1px solid $grey-2;
+
+      &:first-child,
+      &.first-child {
+        border-top: 0;
+      }
+    }
+    dd {
+      float: left;
+      width: 60%;
+      border-top: 1px solid $grey-2;
+
+      &:first-child,
+      &.first-child {
+        border-top: 0;
+        padding-top: 0;
+      }
+    }
+  }
+}

@@ -13,6 +13,7 @@
     vm.showActions = showActions;
     vm.gotoPrevStep = gotoPrevStep;
     vm.submitStep = submitStep;
+    vm.cancel = cancel;
 
     // send all session data to summary screen
     if ($state.current.name === 'steps.summary') {
@@ -44,14 +45,19 @@
       var nextStep = FormDataService.getNextStep($state.current.name);
       var data = {};
 
-      // console.log('submitting:', vm.formData);
-
-      data[$state.current.name] = vm.formData;      
-      FormDataService.saveData(data);
-
       if (nextStep) {
+        data[$state.current.name] = vm.formData;      
+        FormDataService.saveData(data);
+
         $state.go(nextStep, null, {reload: true});
+      } else {
+        $state.go('confirmation');
       }
+    }
+
+    function cancel () {
+      FormDataService.clearData();
+      $state.go('profile', null, {reload: true});
     }
   }
 })();

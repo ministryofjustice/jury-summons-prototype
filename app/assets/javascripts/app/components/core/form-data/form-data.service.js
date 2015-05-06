@@ -12,6 +12,7 @@
     var formData = $sessionStorage.formData || {};
     var service = {
       saveData: saveData,
+      clearData: clearData,
       getData: getData,
       getPrevStep: getPrevStep,
       getNextStep: getNextStep
@@ -22,6 +23,11 @@
 
     function saveData(data) {
       formData = $sessionStorage.formData = angular.extend(formData, data);
+    }
+
+    function clearData() {
+      formData = {};
+      delete $sessionStorage.formData;
     }
 
     function getData(step) {
