@@ -10,15 +10,28 @@
   /* @ngInject */
   function StepsController(FormDataService, $state) {
     var vm = this;
-    vm.gotoPrevStep = gotoPrevStep;
     vm.formData = FormDataService.getData();
+    vm.showActions = showActions;
+    vm.gotoPrevStep = gotoPrevStep;
     vm.submitStep = submitStep;
 
     ////////////////
 
+    function showActions () {
+      var nextStep = FormDataService.getNextStep($state.current.name);
+
+      if (!nextStep) {
+        return false;
+      }
+      return true;
+    }
+
     function gotoPrevStep () {
       var prevStep = FormDataService.getPrevStep($state.current.name);
-      $state.go(prevStep);
+
+      if (prevStep) {
+        $state.go(prevStep);
+      }
     }
 
     function submitStep (form) {

@@ -16,11 +16,29 @@
       }
     })
     .constant('STEPS', [
-      'profile',
-      'steps.personal-details',
-      'steps.qualification',
-      'steps.disabilities',
-      'steps.occupation',
-      'confirmation'
+      {
+        route: 'profile',
+        title: 'Profile'
+      },
+      {
+        route: 'steps.personal-details',
+        title: 'Your details'
+      },
+      {
+        route: 'steps.qualification',
+        title: 'Your status'
+      },
+      {
+        route: 'steps.disabilities',
+        title: 'Special requirements'
+      },
+      {
+        route: 'steps.occupation',
+        title: 'Your occupation'
+      },
+      {
+        route: 'steps.confirmation',
+        title: 'Check your details'
+      }
     ]);
 })(); 

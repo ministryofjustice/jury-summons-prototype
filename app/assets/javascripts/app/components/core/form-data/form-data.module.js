@@ -3,6 +3,7 @@
 
   angular
     .module('core.formData', [
+      'app.core',
       'ngStorage'
     ]);
 })();

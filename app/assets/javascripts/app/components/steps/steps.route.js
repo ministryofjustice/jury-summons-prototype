@@ -65,6 +65,17 @@
             }
           }
         }
+      },
+      {
+        state: 'steps.confirmation',
+        config: {
+          url: '/summary',
+          views: {
+            'form': {
+              templateUrl: 'components/steps/confirmation.html'
+            }
+          }
+        }
       }
     ];
   }
