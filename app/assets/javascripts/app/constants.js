@@ -16,6 +16,31 @@
         datetime: '2015-09-20T09:15'
       }
     ])
+    .constant('SAMPLE_ANSWERS', {
+      'steps.details': {
+        title: 'Mr',
+        name: 'John Smith',
+        address: '102 Petty France,\nWestminster,\nLondon,\nSW1H 9AJ',
+        dobDay: 1,
+        dobMonth: 1,
+        dobYear: 2007,
+        email: 'moj@digital.justice.gov.uk',
+        phone: '01234567890',
+        alternativePhone: '01234567891'
+      },
+      'steps.qualification': {
+        residence: 'Yes',
+        mentalHealth: 'No',
+        bail: 'No',
+        convictions: 'No'
+      },
+      'steps.disabilities': {
+        disabilities: 'No'
+      },
+      'steps.occupation': {
+        occupation: 'No'
+      }
+    })
     .constant('STEPS', [
       {
         route: 'profile',
@@ -42,4 +67,4 @@
         title: 'Check your details'
       }
     ]);
-})(); 
+})();

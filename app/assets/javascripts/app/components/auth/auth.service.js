@@ -5,10 +5,10 @@
     .module('app.auth')
     .factory('AuthService', AuthService);
 
-  AuthService.$inject = ['$sessionStorage', '$state', 'JURORS', '_'];
+  AuthService.$inject = ['$sessionStorage', 'FormDataService', '$state', 'JURORS', '_'];
 
   /* @ngInject */
-  function AuthService($sessionStorage, $state, JURORS, _) {
+  function AuthService($sessionStorage, FormDataService, $state, JURORS, _) {
     var service = {
       isAuthenticated: isAuthenticated,
       getJuror: getJuror,
@@ -43,6 +43,7 @@
 
     function logout() {
       delete $sessionStorage.userId;
+      FormDataService.clearData();
       $state.go('login');
     }
   }

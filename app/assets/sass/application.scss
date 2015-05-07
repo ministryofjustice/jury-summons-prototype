@@ -21,5 +21,12 @@
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you,
 // either add and import new partial files, or modify those in GOV.UK elements to fit your user needs.
 
+@import 'jury-summons/util';
 @import 'jury-summons/summary-table';
 @import 'jury-summons/confirmation-box';
+
+// browsersync notify hack
+#__bs_notify__ {
+  right: auto !important;
+  left: 0; 
+}
