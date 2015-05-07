@@ -11,7 +11,7 @@
       {
         id: '54291234',
         name: 'John Smith',
-        address: '211, West Block, London SE1 7GL',
+        address: '211,\nWest Block,\nLondon\nSE1 7GL',
         court: 'Blackfriars Crown Court',
         datetime: '2015-09-20T09:15'
       }

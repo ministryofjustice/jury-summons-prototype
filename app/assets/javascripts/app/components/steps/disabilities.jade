@@ -1,11 +1,6 @@
 h1.heading-xlarge Disabilities
-
-fieldset.form-group
-  legend.form-label Do you have any disability or impairment...?
-  .inline
-    label.block-label(for='disabilities-yes')
-      input#disabilities-yes(type='radio', value='Yes', name='disabilities', ng-model='vm.formData.disabilities', required)
-      | Yes
-    label.block-label(for='disabilities-no')
-      input#disabilities-no(type='radio', value='No', name='disabilities', ng-model='vm.formData.disabilities', required)
-      | No
+yesno(
+  model='vm.formData.disabilities',
+  name='disabilities',
+  label='Do you have any disability or impairment...?'
+)

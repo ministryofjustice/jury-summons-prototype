@@ -1,0 +1,10 @@
+fieldset.form-group
+  legend.form-label {{ vm.label }}
+  p.form-hint(ng-if='vm.hint') {{ vm.hint }}
+  .inline
+    label.block-label(for='{{ vm.name }}--yes')
+      input(type='radio', value='Yes', id='{{ vm.name }}--yes', name='{{ vm.name }}', ng-model='vm.model', required)
+      | Yes
+    label.block-label(for='{{ vm.name }}--no')
+      input(type='radio', value='No', id='{{ vm.name }}--no', name='{{ vm.name }}', ng-model='vm.model', required)
+      | No
