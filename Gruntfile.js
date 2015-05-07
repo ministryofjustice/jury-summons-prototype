@@ -47,12 +47,6 @@ module.exports = function(grunt){
           cwd: 'app/assets/',
           src: ['**/*', '!sass/**', '!javascripts/app/**/*', '!javascripts/app'],
           dest: 'public/'
-        },
-        {
-          expand: true,
-          cwd: 'govuk_modules/govuk_frontend_toolkit/',
-          src: ['javascripts/govuk/**/*'],
-          dest: 'public/'
         }]
       }
     },
@@ -124,8 +118,15 @@ module.exports = function(grunt){
         }
       },
       assets:{
-        files: ['app/assets/**/*', '!app/assets/sass/**'],
-        tasks: ['copy:assets', 'jade', 'ngtemplates', 'ngAnnotate'],
+        files: ['app/assets/**/*', '!app/assets/sass/**', '!app/assets/javascripts/app/**'],
+        tasks: ['copy:assets'],
+        options: {
+          spawn: false,
+        }
+      },
+      ngApp:{
+        files: ['app/assets/javascripts/app/**/*'],
+        tasks: ['jade', 'ngtemplates', 'ngAnnotate'],
         options: {
           spawn: false,
         }

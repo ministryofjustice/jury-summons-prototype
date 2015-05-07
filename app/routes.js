@@ -1,5 +1,3 @@
-var YAML = require('yamljs');
-
 module.exports = {
   bind : function (app) {
 
