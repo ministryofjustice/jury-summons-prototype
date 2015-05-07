@@ -1,0 +1,14 @@
+h1.heading-xlarge Your occupation
+yesno(
+  model='vm.formData.occupation',
+  name='occupation',
+  label='Have you in the last 5 years been in the police, CPS, or...?'
+)
+.panel-indent(ng-if="vm.formData.occupation === 'Yes'")
+  p Please give more details
+  .form-group
+    label.form-label(for='vm.formData.jobTitle') Job title
+    input#jobTitle.form-control(type='text', name='jobTitle', ng-model='vm.formData.jobTitle', required)
+  .form-group
+    label.form-label(for='vm.formData.organisation') Organisation
+    input#organisation.form-control(type='text', name='organisation', ng-model='vm.formData.organisation', required)

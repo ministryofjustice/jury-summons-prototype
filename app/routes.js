@@ -1,12 +1,8 @@
 module.exports = {
   bind : function (app) {
 
-    app.get('/', function (req, res) {
-      res.render('index');
-    });
-
-    app.get('/examples/template-data', function (req, res) {
-      res.render('examples/template-data', { 'name' : 'Foo' });
+    app.get('*', function (req, res) {
+      res.render('layout', {env: 'production', debug: process.env['DEBUG']});
     });
 
     // add your routes here

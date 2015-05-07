@@ -1,0 +1,49 @@
+h1.heading-xlarge Your details
+
+// Title
+.form-group
+  label.form-label(for='title') Title
+  input#title.form-control(type='text', name='title', ng-model='vm.formData.title', required)
+// Full name
+.form-group
+  label.form-label(for='name') Full name
+  p.form-hint As shown on your Jury Summons
+  input#name.form-control(type='text', name='name', ng-model='vm.formData.name', required)
+// Address
+.form-group
+  label.form-label(for='address') Address
+  textarea#address.form-control(name='address', rows='4', ng-model='vm.formData.address', required)
+// Date of birth
+.form-group
+  fieldset
+    legend.form-label Date of birth
+    .form-date
+      p.form-hint For example, 31 3 1980
+      .form-group.form-group-day
+        label(for='dob-day') Day
+        input#dob-day.form-control(type='number', pattern='[0-9]*', min='0', max='31', name='dobDay', ng-model='vm.formData.dobDay', required)
+      .form-group.form-group-month
+        label(for='dob-month') Month
+        input#dob-month.form-control(type='number', pattern='[0-9]*', min='0', max='12', name='dobMonth', ng-model='vm.formData.dobMonth', required)
+      .form-group.form-group-year
+        label(for='dob-year') Year
+        input#dob-year.form-control(type='number', pattern='[0-9]*', min='0', max='2014', name='dobYear', ng-model='vm.formData.dobYear', required)
+.form-group
+  details
+    summary
+      span.summary Help with date of birth
+    .panel-indent
+      p If you don&rsquo;t know your exact date of birth, use the one you put on official documents (for example, your passport or driving licence).
+      p If you can&rsquo;t provide your date of birth you&rsquo;ll have to send copies of identity documents through the post.
+// Email address
+.form-group
+  label.form-label(for='email') Email address
+  input#email.form-control(type='email', name='email', ng-model='vm.formData.email', required)
+// Phone
+.form-group
+  label.form-label(for='phone') Phone
+  input#phone.form-control(type='text', name='phone', ng-model='vm.formData.phone', required)
+// Alternative phone
+.form-group
+  label.form-label(for='alternative-phone') Alternative phone (optional) 
+  input#alternative-phone.form-control(type='text', name='alternativePhone', ng-model='vm.formData.alternativePhone')

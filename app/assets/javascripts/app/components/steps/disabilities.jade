@@ -1,0 +1,24 @@
+h1.heading-xlarge Disabilities
+yesno(
+  model='vm.formData.disabilities',
+  name='disabilities',
+  label='Do you have any disability or impairment...?'
+)
+.panel-indent(ng-if="vm.formData.disabilities === 'Yes'")
+  fieldset.form-group
+    legend.form-label Please select appropriate one(s) below
+    label.block-label(for='visual')
+      input(type='checkbox', value='Visual Impairment', id='visual', name='visual', ng-model='vm.formData.visual')
+      | Visual impairment
+    label.block-label(for='mobility')
+      input(type='checkbox', value='Limited mobility', id='mobility', name='mobility', ng-model='vm.formData.mobility')
+      | Limited mobility
+    label.block-label(for='hearing')
+      input(type='checkbox', value='Hearing impairment', id='hearing', name='hearing', ng-model='vm.formData.hearing')
+      | Hearing impairment
+    label.block-label(for='other')
+      input(type='checkbox', value='Other', id='other', name='other', ng-model='vm.formData.other')
+      | Other
+  .form-group
+    label.form-label(for='disabilitiesInfo') Please give more details (optional)
+    textarea#disabilitiesInfo.form-control(name='disabilitiesInfo', rows='3', ng-model='vm.formData.moreInfo')

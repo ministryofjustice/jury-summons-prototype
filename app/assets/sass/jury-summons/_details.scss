@@ -1,0 +1,36 @@
+details {
+  display: block;
+
+  summary {
+    display: block;
+    color: $link-colour;
+    cursor: pointer;
+    text-decoration: underline;
+
+    &:hover {
+      color: $link-hover-colour;
+    }
+    &:active {
+      color: $link-active-colour;
+    }
+  }
+
+  &[open] > div {
+    display: block;
+  }
+
+  // no native support
+  &.is-notnative {
+    summary:before {
+      content: "►";
+      float: left;
+      width: 18px;
+      font-size: 0.8em;
+      line-height: 1.7em;
+    }
+
+    &.is-open summary:before {
+      content: "▼ ";
+    }
+  }
+}

@@ -1,0 +1,7 @@
+form(name='stepForm', ng-submit='vm.submitStep(stepForm)')
+  div(ui-view='form')
+  .form-group(ng-show='vm.showActions()')
+    input(type='submit', class='button', value='Continue')
+    ul
+      li
+        a(href='', ng-click='vm.gotoPrevStep()') Back
