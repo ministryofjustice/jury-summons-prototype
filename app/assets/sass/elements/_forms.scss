@@ -98,6 +98,12 @@ fieldset {
   -webkit-appearance: none;
   border-radius: 0;
 
+  // disable red border in FF
+  &:required,
+  &:invalid {
+    box-shadow:none;
+  }
+
   @include media(tablet) {
     width: 50%;
   }
