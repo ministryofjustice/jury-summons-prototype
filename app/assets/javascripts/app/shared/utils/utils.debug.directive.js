@@ -20,14 +20,15 @@
       link: link,
       restrict: 'E',
       scope: {
-        environment: '@'
+        environment: '@',
+        debug: '@'
       }
     };
     return directive;
 
     function link(scope, element, attrs) {
       // don't show if in production
-      if (scope.vm.environment === 'production') {
+      if (scope.vm.environment === 'production' && !scope.vm.debug) {
         element.remove();
       }
     }
