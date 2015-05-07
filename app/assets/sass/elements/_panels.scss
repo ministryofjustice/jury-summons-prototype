@@ -7,8 +7,13 @@
   clear: both;
   border-left: 4px solid $border-colour;
 
-  padding: 20px 0 20px $gutter-half;
+  padding: 10px 0 10px $gutter-half;
   margin: ($gutter $gutter-half $gutter*1.5 0);
+
+  &.large {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 }
 .panel-background {
   background-color: $grey-4;

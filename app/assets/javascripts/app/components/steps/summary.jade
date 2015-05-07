@@ -25,27 +25,52 @@ h2.summary-heading
   a(ui-sref='steps.qualification', ui-sref-opts='{reload: true}') Change this
 dl.summary-table
   dt Have you lived in the UK, channel islands or ...?
-  dd {{ vm.formData['steps.qualification'].residence }}
+  dd 
+    | {{ vm.formData['steps.qualification'].residence }}
+    span(ng-if="vm.formData['steps.qualification'].residence === 'No'") . {{ vm.formData['steps.qualification'].residenceInfo }}
   dt Question about the mental capabilities...?
-  dd {{ vm.formData['steps.qualification'].mentalHealth }}
+  dd 
+    |{{ vm.formData['steps.qualification'].mentalHealth }}
+    span(ng-if="vm.formData['steps.qualification'].mentalHealth === 'Yes'") . {{ vm.formData['steps.qualification'].mentalHealthInfo }}
   dt Are you on bail?
-  dd {{ vm.formData['steps.qualification'].bail }}
+  dd 
+    | {{ vm.formData['steps.qualification'].bail }}
+    span(ng-if="vm.formData['steps.qualification'].bail === 'Yes'") . {{ vm.formData['steps.qualification'].bailInfo }}
   dt Have you been convicted?
-  dd {{ vm.formData['steps.qualification'].convictions }}
+  dd 
+    | {{ vm.formData['steps.qualification'].convictions }}
+    span(ng-if="vm.formData['steps.qualification'].convictions === 'Yes'") . {{ vm.formData['steps.qualification'].convictionsInfo }}
 //- disabilities
 h2.summary-heading
   | Disability and special needs?
   a(ui-sref='steps.disabilities', ui-sref-opts='{reload: true}') Change this
 dl.summary-table
   dt Do you have any disability or impairment...?
-  dd {{ vm.formData['steps.disabilities'].disabilities }}
+  dd 
+    | {{ vm.formData['steps.disabilities'].disabilities }}
+    span(ng-if="vm.formData['steps.disabilities'].disabilities === 'Yes'")
+      span(ng-if="vm.formData['steps.disabilities'].visual")
+        | . Visual impairment
+      span(ng-if="vm.formData['steps.disabilities'].mobility")
+        | . Limited mobility
+      span(ng-if="vm.formData['steps.disabilities'].hearing")
+        | . Hearing impairment
+      span(ng-if="vm.formData['steps.disabilities'].other")
+        | . Other
+      span(ng-if="vm.formData['steps.disabilities'].moreInfo")
+        | . {{ vm.formData['steps.disabilities'].moreInfo }}
 //- occupation
 h2.summary-heading
   | Occupation?
   a(ui-sref='steps.occupation', ui-sref-opts='{reload: true}') Change this
 dl.summary-table
   dt Have you been in the last 5 years...?
-  dd {{ vm.formData['steps.occupation'].occupation }}
+  dd 
+    | {{ vm.formData['steps.occupation'].occupation }}
+    span(ng-if="vm.formData['steps.occupation'].occupation === 'Yes'")
+      | .
+      |  {{ vm.formData['steps.occupation'].jobTitle }}.
+      |  {{ vm.formData['steps.occupation'].organisation }}
 //- confirm
 h2.summary-heading Submit your form
 p Please check all the information above is correct. This is the last opportunity to change the details of your form online.
@@ -54,4 +79,3 @@ p Please check all the information above is correct. This is the last opportunit
   ul
     li
       a(href='', ng-click='vm.cancel()') Cancel and delete all details
-//- step-summary(step='step', data='data', ng-repeat='(step, data) in vm.formData')

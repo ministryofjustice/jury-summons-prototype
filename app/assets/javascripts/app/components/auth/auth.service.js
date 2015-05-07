@@ -5,10 +5,10 @@
     .module('app.auth')
     .factory('AuthService', AuthService);
 
-  AuthService.$inject = ['$sessionStorage', '$state', 'JURORS', '_'];
+  AuthService.$inject = ['$sessionStorage', 'FormDataService', '$state', 'JURORS', '_'];
 
   /* @ngInject */
-  function AuthService($sessionStorage, $state, JURORS, _) {
+  function AuthService($sessionStorage, FormDataService, $state, JURORS, _) {
     var service = {
       isAuthenticated: isAuthenticated,
       getJuror: getJuror,
@@ -30,11 +30,12 @@
     }
 
     function login(user) {
-      var user = user.replace(/ /g,'')
-      var juror = _.findWhere(JURORS, {id: user});
+      var juror = _.findWhere(JURORS, {
+        id: user.replace(/ /g,'')
+      });
 
       if (juror) {
-        $sessionStorage.userId = user;
+        $sessionStorage.userId = juror.id;
         return true;
       }
       
@@ -43,6 +44,7 @@
 
     function logout() {
       delete $sessionStorage.userId;
+      FormDataService.clearData();
       $state.go('login');
     }
   }

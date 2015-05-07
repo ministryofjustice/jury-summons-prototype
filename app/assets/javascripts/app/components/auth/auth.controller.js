@@ -16,15 +16,17 @@
     ////////////////
 
     function login(form) {
-      var attemptLogin = AuthService.login(vm.jurorNumber);
+      if (form.$valid) {
+        var attemptLogin = AuthService.login(vm.jurorNumber);
 
-      if (!attemptLogin) {
-        if (vm.jurorNumber) {
-          form.jurorNumber.$setValidity('valid', false);
+        if (!attemptLogin) {
+          if (vm.jurorNumber) {
+            form.jurorNumber.$setValidity('valid', false);
+          }
+          return;
         }
-        return;
+        $state.go('profile');
       }
-      $state.go('profile');
     }
   }
 })();

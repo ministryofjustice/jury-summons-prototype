@@ -1,42 +1,54 @@
 h1.heading-xlarge Qualification
-
-fieldset.form-group
-  legend.form-label Have you lived in the UK, channel islands or ...?
-  p.form-hint Extra help text area to give more information
-  .inline
-    label.block-label(for='residence-yes')
-      input#residence-yes(type='radio', value='Yes', name='residence', ng-model='vm.formData.residence', required)
-      | Yes
-    label.block-label(for='residence-no')
-      input#residence-no(type='radio', value='No', name='residence', ng-model='vm.formData.residence', required)
-      | No
-fieldset.form-group
-  legend.form-label Question about the mental capabilities...?
-  p.form-hint Extra help text area to give more information
-  .inline
-    label.block-label(for='mental-health-yes')
-      input#mental-health-yes(type='radio', value='Yes', name='mentalHealth', ng-model='vm.formData.mentalHealth', required)
-      | Yes    
-    label.block-label(for='mental-health-no')
-      input#mental-health-no(type='radio', value='No', name='mentalHealth', ng-model='vm.formData.mentalHealth', required)
-      | No
-fieldset.form-group
-  legend.form-label Are you on bail?
-  p.form-hint Extra help text area to give more information
-  .inline
-    label.block-label(for='bail-yes')
-      input#bail-yes(type='radio', value='Yes', name='bail', ng-model='vm.formData.bail', required)
-      | Yes
-    label.block-label(for='bail-no')
-      input#bail-no(type='radio', value='No', name='bail', ng-model='vm.formData.bail', required)
-      | No
-fieldset.form-group
-  legend.form-label Have you even been convicted?
-  p.form-hint Extra help text area to give more information
-  .inline
-    label.block-label(for='convictions-yes')
-      input#convictions-yes(type='radio', value='Yes', name='convictions', ng-model='vm.formData.convictions', required)
-      | Yes
-    label.block-label(for='convictions-no')
-      input#convictions-no(type='radio', value='No', name='convictions', ng-model='vm.formData.convictions', required)
-      | No
+yesno(
+  model='vm.formData.residence',
+  name='residence',
+  label='Have you lived in the UK, channel islands or ...?',
+  hint='Extra help text area to give more information'
+)
+conditionalinfo(
+  model='vm.formData.residenceInfo',
+  name='residenceInfo',
+  label='Please give more details',
+  trigger='vm.formData.residence',
+  required='true',
+  reverse='true'
+)
+yesno(
+  model='vm.formData.mentalHealth',
+  name='mentalHealth',
+  label='Question about the mental capabilities...?',
+  hint='Extra help text area to give more information'
+)
+conditionalinfo(
+  model='vm.formData.mentalHealthInfo',
+  name='mentalHealthInfo',
+  label='Please give more details',
+  trigger='vm.formData.mentalHealth',
+  required='true'
+)
+yesno(
+  model='vm.formData.bail',
+  name='bail',
+  label='Are you on bail?',
+  hint='Extra help text area to give more information'
+)
+conditionalinfo(
+  model='vm.formData.bailInfo',
+  name='bailInfo',
+  label='Please give more details',
+  trigger='vm.formData.bail',
+  required='true'
+)
+yesno(
+  model='vm.formData.convictions',
+  name='convictions',
+  label='Have you even been convicted?',
+  hint='Extra help text area to give more information'
+)
+conditionalinfo(
+  model='vm.formData.convictionsInfo',
+  name='convictionsInfo',
+  label='Please give more details',
+  trigger='vm.formData.convictions',
+  required='true'
+)

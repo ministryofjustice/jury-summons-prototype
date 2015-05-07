@@ -1,0 +1,12 @@
+.util
+  a(ng-click='vm.resetSession()') Reset
+  a(ng-click='vm.login()') Login
+  nav.dd-button(ng-class="{'s-expanded' : vm.debugExpanded}")
+    a.toggle(ng-click='vm.debugExpanded = !vm.debugExpanded; vm.resetExpanded = false;') Complete
+    ul
+      li
+        a(href='', ng-click='vm.fillData(\'accept\')') Accepted
+      li
+        a(href='', ng-click='vm.fillData(\'delay\')') Deffered
+      li
+        a(href='', ng-click='vm.fillData(\'excuse\')') Excused
