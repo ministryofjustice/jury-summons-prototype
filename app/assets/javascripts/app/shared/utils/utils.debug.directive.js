@@ -5,8 +5,6 @@
     .module('app.core')
     .directive('debug', debug);
 
-  debug.$inject = [];
-
   /* @ngInject */
   function debug () {
     // Usage:

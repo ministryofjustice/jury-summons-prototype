@@ -9,6 +9,11 @@
 
   padding: 20px 0 20px $gutter-half;
   margin: ($gutter $gutter-half $gutter*1.5 0);
+
+  details & {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }
 .panel-background {
   background-color: $grey-4;
