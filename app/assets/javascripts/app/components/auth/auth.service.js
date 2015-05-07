@@ -30,11 +30,12 @@
     }
 
     function login(user) {
-      var user = user.replace(/ /g,'')
-      var juror = _.findWhere(JURORS, {id: user});
+      var juror = _.findWhere(JURORS, {
+        id: user.replace(/ /g,'')
+      });
 
       if (juror) {
-        $sessionStorage.userId = user;
+        $sessionStorage.userId = juror.id;
         return true;
       }
       
