@@ -5,11 +5,26 @@ yesno(
   label='Have you lived in the UK, channel islands or ...?',
   hint='Extra help text area to give more information'
 )
+conditionalinfo(
+  model='vm.formData.residenceInfo',
+  name='residenceInfo',
+  label='Please give more details',
+  trigger='vm.formData.residence',
+  required='true',
+  reverse='true'
+)
 yesno(
   model='vm.formData.mentalHealth',
   name='mentalHealth',
   label='Question about the mental capabilities...?',
   hint='Extra help text area to give more information'
+)
+conditionalinfo(
+  model='vm.formData.mentalHealthInfo',
+  name='mentalHealthInfo',
+  label='Please give more details',
+  trigger='vm.formData.mentalHealth',
+  required='true'
 )
 yesno(
   model='vm.formData.bail',
@@ -17,9 +32,23 @@ yesno(
   label='Are you on bail?',
   hint='Extra help text area to give more information'
 )
+conditionalinfo(
+  model='vm.formData.bailInfo',
+  name='bailInfo',
+  label='Please give more details',
+  trigger='vm.formData.bail',
+  required='true'
+)
 yesno(
   model='vm.formData.convictions',
   name='convictions',
   label='Have you even been convicted?',
   hint='Extra help text area to give more information'
+)
+conditionalinfo(
+  model='vm.formData.convictionsInfo',
+  name='convictionsInfo',
+  label='Please give more details',
+  trigger='vm.formData.convictions',
+  required='true'
 )

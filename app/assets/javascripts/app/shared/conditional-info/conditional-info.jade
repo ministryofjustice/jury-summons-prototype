@@ -1,0 +1,4 @@
+.panel-indent(ng-if="vm.trigger === vm.condition")
+  .form-group
+    label.form-label(for='{{ vm.name }}') {{ vm.label }}
+    textarea.form-control(id='{{ vm.name }}', name='{{ vm.name }}', rows='3', ng-model='vm.model', ng-required='vm.required')

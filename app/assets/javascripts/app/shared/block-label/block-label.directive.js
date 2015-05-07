@@ -1,4 +1,4 @@
-(function() {
+ (function() {
   'use strict';
 
   angular
@@ -46,10 +46,18 @@
     }
     
     function setSelected (val) {
-      if (val === $element.val()) {
-        blockLabel.addClass('selected');
-      } else {        
-        blockLabel.removeClass('selected');
+      if ($element.attr('type') === 'checkbox') {
+        if (val) {
+          blockLabel.addClass('selected');
+        } else {        
+          blockLabel.removeClass('selected');
+        }
+      } else {
+        if (val === $element.val()) {
+          blockLabel.addClass('selected');
+        } else {        
+          blockLabel.removeClass('selected');
+        }
       }
     }
 
