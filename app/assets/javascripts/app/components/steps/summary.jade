@@ -19,6 +19,22 @@ dl.summary-table.summary-table--inline
   dd {{ vm.formData['steps.details'].phone }}
   dt Alternative Phone:
   dd {{ vm.formData['steps.details'].alternativePhone }}
+//- delaying
+div(ng-if="vm.formData.profile.response === 'delay'")
+  h2.summary-heading
+    | Delaying jury service
+    a(ui-sref='steps.delay', ui-sref-opts='{reload: true}') Change this
+  dl.summary-table
+    dt When do you want to do jury service?
+    dd {{ vm.formData['steps.delay'].availableDates }}
+//- excusing
+div(ng-if="vm.formData.profile.response === 'excuse'")
+  h2.summary-heading
+    | Request for excusal
+    a(ui-sref='steps.excuse', ui-sref-opts='{reload: true}') Change this
+  dl.summary-table
+    dt What is the reason you need to be excused?
+    dd {{ vm.formData['steps.excuse'].reason }}
 //- qualification
 h2.summary-heading
   | Are you qualified?

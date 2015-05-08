@@ -1,0 +1,13 @@
+h1.heading-xlarge Request to be excused
+p Excusal reasons are limited, it must be one of the following:
+ul.list-bullet
+  li Reason one
+  li Reason two
+p 
+  | If in doubt,&nbsp;
+  a(href='', ng-click='vm.manualDelay()') delay your service
+  | &nbsp;instead
+h2.bold-large Why do you need to be excused?
+.form-group
+  label.form-label(for='reason') Please give details about your reason
+  textarea#reason.form-control.form-control--full(name='reason', rows='4', ng-model='vm.formData.reason', required)

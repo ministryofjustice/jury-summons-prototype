@@ -34,6 +34,28 @@
         }
       },
       {
+        state: 'steps.delay',
+        config: {
+          url: '/delay',
+          views: {
+            'form': {
+              templateUrl: 'components/steps/delay.html'
+            }
+          }
+        }
+      },
+      {
+        state: 'steps.excuse',
+        config: {
+          url: '/excuse',
+          views: {
+            'form': {
+              templateUrl: 'components/steps/excuse.html'
+            }
+          }
+        }
+      },
+      {
         state: 'steps.qualification',
         config: {
           url: '/qualification',

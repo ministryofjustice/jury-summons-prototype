@@ -5,17 +5,15 @@
     .module('core.formData')
     .factory('FormDataService', FormDataService);
 
-  FormDataService.$inject = ['$sessionStorage', 'STEPS', '_'];
+  FormDataService.$inject = ['$sessionStorage', '_'];
 
   /* @ngInject */
-  function FormDataService($sessionStorage, STEPS, _) {
+  function FormDataService($sessionStorage, _) {
     var formData = $sessionStorage.formData || {};
     var service = {
       saveData: saveData,
       clearData: clearData,
-      getData: getData,
-      getPrevStep: getPrevStep,
-      getNextStep: getNextStep
+      getData: getData
     };
     return service;
 
@@ -36,26 +34,6 @@
       }
 
       return formData[step] || {};
-    }
-
-    function getPrevStep(currentRoute) {
-      var current = _.findWhere(STEPS, {route: currentRoute});
-      var index = STEPS.indexOf(current);
-
-      if (index > 0) {
-        return STEPS[index - 1].route;
-      }
-      return;
-    }
-
-    function getNextStep(currentRoute) {
-      var current = _.findWhere(STEPS, {route: currentRoute});
-      var index = STEPS.indexOf(current);
-
-      if ((index + 1) < STEPS.length) {
-        return STEPS[index + 1].route;
-      }
-      return;
     }
   }
 })();

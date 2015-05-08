@@ -15,12 +15,12 @@ form(name='profileForm', ng-submit='vm.submit()', novalidate)
     legend.form-label What would you like to do?
     label.block-label(for='accept')
       input(type='radio', value='accept', id='accept', name='response', ng-model='vm.formData.response')
-      | Complete
+      | Accept and complete your summons
     label.block-label(for='delay')
       input(type='radio', value='delay', id='delay', name='response', ng-model='vm.formData.response')
-      | Delay
+      | Delay your jury service
     label.block-label(for='excuse')
       input(type='radio', value='excuse', id='excuse', name='response', ng-model='vm.formData.response')
-      | Be excused
+      | Apply to be excused
   .form-group
     input.button(type='submit', value='Start')

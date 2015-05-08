@@ -19,7 +19,7 @@
       }
 
       if(AuthService.isAuthenticated()){
-         return;
+        return;
       }
 
       $state.go('login');

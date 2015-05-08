@@ -21,12 +21,20 @@
         title: 'Mr',
         name: 'John Smith',
         address: '102 Petty France,\nWestminster,\nLondon,\nSW1H 9AJ',
-        dobDay: 1,
-        dobMonth: 1,
-        dobYear: 2007,
+        dob: {
+          day: 1,
+          month: 1,
+          year: 2007
+        },
         email: 'moj@digital.justice.gov.uk',
         phone: '01234567890',
         alternativePhone: '01234567891'
+      },
+      'steps.delay': {
+        'availableDates': 'Anytime in June/July/August'
+      },
+      'steps.excuse': {
+        'reason': 'I have served on a Jury in the last 2 years'
       },
       'steps.qualification': {
         residence: 'Yes',
@@ -35,7 +43,9 @@
         convictions: 'No'
       },
       'steps.disabilities': {
-        disabilities: 'No'
+        disabilities: 'Yes',
+        mobility: true,
+        moreInfo: 'I will require a wheelchair'
       },
       'steps.occupation': {
         occupation: 'No'
@@ -45,6 +55,20 @@
       {
         route: 'profile',
         title: 'Profile'
+      },
+      {
+        route: 'steps.delay',
+        title: 'Be delayed',
+        condition: {
+          response: 'delay'
+        }
+      },
+      {
+        route: 'steps.excuse',
+        title: 'Be excused',
+        condition: {
+          response: 'excuse'
+        }
       },
       {
         route: 'steps.details',
