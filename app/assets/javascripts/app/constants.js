@@ -47,6 +47,20 @@
         title: 'Profile'
       },
       {
+        route: 'steps.delay',
+        title: 'Be delayed',
+        condition: {
+          response: 'delay'
+        }
+      },
+      {
+        route: 'steps.excuse',
+        title: 'Be excused',
+        condition: {
+          response: 'excuse'
+        }
+      },
+      {
         route: 'steps.details',
         title: 'Your details'
       },
