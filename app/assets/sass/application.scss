@@ -22,6 +22,7 @@
 // either add and import new partial files, or modify those in GOV.UK elements to fit your user needs.
 
 @import 'jury-summons/util';
+@import 'jury-summons/helpers';
 @import 'jury-summons/details';
 @import 'jury-summons/summary-table';
 @import 'jury-summons/confirmation-box';

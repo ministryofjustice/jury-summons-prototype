@@ -1,0 +1,9 @@
+.inline-edit {
+  margin-left: 10px;
+  &:visited {
+    color: $link-colour;
+  }
+  &:hover {
+    color: $link-hover-colour;
+  }
+}
