@@ -106,6 +106,9 @@ fieldset {
 
   @include media(tablet) {
     width: 50%;
+    &.form-control--full {
+      width: 100%;
+    }
   }
 }
 

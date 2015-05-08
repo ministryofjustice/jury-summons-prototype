@@ -12,13 +12,29 @@ dl.summary-table.summary-table--inline
   dt Address:
   dd {{ vm.formData['steps.details'].address }}
   dt Date of Birth:
-  dd {{ vm.formData['steps.details'].dobDay }}/{{ vm.formData['steps.details'].dobMonth }}/{{ vm.formData['steps.details'].dobYear }}
+  dd {{ vm.formData['steps.details'].dob.day }}/{{ vm.formData['steps.details'].dob.month }}/{{ vm.formData['steps.details'].dob.year }}
   dt Email:
   dd {{ vm.formData['steps.details'].email }}
   dt Phone:
   dd {{ vm.formData['steps.details'].phone }}
   dt Alternative Phone:
   dd {{ vm.formData['steps.details'].alternativePhone }}
+//- delaying
+div(ng-if="vm.formData.profile.response === 'delay'")
+  h2.summary-heading
+    | Delaying jury service
+    a(ui-sref='steps.delay', ui-sref-opts='{reload: true}') Change this
+  dl.summary-table
+    dt When do you want to do jury service?
+    dd {{ vm.formData['steps.delay'].availableDates }}
+//- excusing
+div(ng-if="vm.formData.profile.response === 'excuse'")
+  h2.summary-heading
+    | Request for excusal
+    a(ui-sref='steps.excuse', ui-sref-opts='{reload: true}') Change this
+  dl.summary-table
+    dt What is the reason you need to be excused?
+    dd {{ vm.formData['steps.excuse'].reason }}
 //- qualification
 h2.summary-heading
   | Are you qualified?

@@ -5,13 +5,14 @@
     .module('app.steps')
     .controller('StepsController', StepsController);
 
-  StepsController.$inject = ['FormDataService', '$state'];
+  StepsController.$inject = ['FormDataService', 'StepService', 'AuthService', '$state'];
 
   /* @ngInject */
-  function StepsController(FormDataService, $state) {
+  function StepsController(FormDataService, StepService, AuthService, $state) {
     var vm = this;
     vm.showActions = showActions;
     vm.gotoPrevStep = gotoPrevStep;
+    vm.manualDelay = manualDelay;
     vm.submitStep = submitStep;
     vm.cancel = cancel;
 
@@ -19,13 +20,29 @@
     if ($state.current.name === 'steps.summary') {
       vm.formData = FormDataService.getData();
     } else {
-      vm.formData = FormDataService.getData($state.current.name);
+      vm.formData = angular.copy(FormDataService.getData($state.current.name));
+    }
+
+    if ($state.current.name === 'steps.details') {
+      initPersonalDetails();
     }
 
     ////////////////
 
+    function initPersonalDetails () {
+      var juror = AuthService.getJuror();
+
+      if (vm.formData['name'] && vm.formData['address']) {
+        vm.editName = true;
+        vm.editAddr = true;
+      } else {
+        vm.formData['name'] = juror.name;
+        vm.formData['address'] = juror.address;
+      }
+    }
+
     function showActions () {
-      var nextStep = FormDataService.getNextStep($state.current.name);
+      var nextStep = StepService.getNextStep($state.current.name);
 
       if (!nextStep) {
         return false;
@@ -34,15 +51,23 @@
     }
 
     function gotoPrevStep () {
-      var prevStep = FormDataService.getPrevStep($state.current.name);
+      var prevStep = StepService.getPrevStep($state.current.name);
 
       if (prevStep) {
         $state.go(prevStep, null, {reload: true});
       }
     }
 
+    function manualDelay () {
+      var data = { profile: { response: 'delay' } };
+
+      FormDataService.saveData(data);
+      
+      $state.go('steps.delay', null, {reload: true});
+    }
+
     function submitStep (form) {
-      var nextStep = FormDataService.getNextStep($state.current.name);
+      var nextStep = StepService.getNextStep($state.current.name);
       var data = {};
 
       if (nextStep) {
