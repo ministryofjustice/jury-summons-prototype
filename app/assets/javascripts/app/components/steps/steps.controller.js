@@ -5,10 +5,10 @@
     .module('app.steps')
     .controller('StepsController', StepsController);
 
-  StepsController.$inject = ['FormDataService', 'AuthService', '$state'];
+  StepsController.$inject = ['FormDataService', 'StepService', 'AuthService', '$state'];
 
   /* @ngInject */
-  function StepsController(FormDataService, AuthService, $state) {
+  function StepsController(FormDataService, StepService, AuthService, $state) {
     var vm = this;
     vm.showActions = showActions;
     vm.gotoPrevStep = gotoPrevStep;
@@ -41,7 +41,7 @@
     }
 
     function showActions () {
-      var nextStep = FormDataService.getNextStep($state.current.name);
+      var nextStep = StepService.getNextStep($state.current.name);
 
       if (!nextStep) {
         return false;
@@ -50,7 +50,7 @@
     }
 
     function gotoPrevStep () {
-      var prevStep = FormDataService.getPrevStep($state.current.name);
+      var prevStep = StepService.getPrevStep($state.current.name);
 
       if (prevStep) {
         $state.go(prevStep, null, {reload: true});
@@ -58,7 +58,7 @@
     }
 
     function submitStep (form) {
-      var nextStep = FormDataService.getNextStep($state.current.name);
+      var nextStep = StepService.getNextStep($state.current.name);
       var data = {};
 
       if (nextStep) {
