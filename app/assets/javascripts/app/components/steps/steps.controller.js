@@ -5,10 +5,10 @@
     .module('app.steps')
     .controller('StepsController', StepsController);
 
-  StepsController.$inject = ['FormDataService', '$state'];
+  StepsController.$inject = ['FormDataService', 'AuthService', '$state'];
 
   /* @ngInject */
-  function StepsController(FormDataService, $state) {
+  function StepsController(FormDataService, AuthService, $state) {
     var vm = this;
     vm.showActions = showActions;
     vm.gotoPrevStep = gotoPrevStep;
@@ -19,10 +19,26 @@
     if ($state.current.name === 'steps.summary') {
       vm.formData = FormDataService.getData();
     } else {
-      vm.formData = FormDataService.getData($state.current.name);
+      vm.formData = angular.copy(FormDataService.getData($state.current.name));
+    }
+
+    if ($state.current.name === 'steps.details') {
+      initPersonalDetails();
     }
 
     ////////////////
+
+    function initPersonalDetails () {
+      var juror = AuthService.getJuror();
+
+      if (vm.formData['name'] && vm.formData['address']) {
+        vm.editName = true;
+        vm.editAddr = true;
+      } else {
+        vm.formData['name'] = juror.name;
+        vm.formData['address'] = juror.address;
+      }
+    }
 
     function showActions () {
       var nextStep = FormDataService.getNextStep($state.current.name);

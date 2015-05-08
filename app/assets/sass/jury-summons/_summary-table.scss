@@ -7,6 +7,13 @@
   a {
     @include core-19;
     float: right;
+    
+    &:visited {
+      color: $link-colour;
+    }
+    &:hover {
+      color: $link-hover-colour;
+    }
   }
 }
 
