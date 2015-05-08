@@ -30,6 +30,12 @@
         phone: '01234567890',
         alternativePhone: '01234567891'
       },
+      'steps.delay': {
+        'availableDates': 'Anytime in June/July/August'
+      },
+      'steps.excuse': {
+        'reason': 'I have served on a Jury in the last 2 years'
+      },
       'steps.qualification': {
         residence: 'Yes',
         mentalHealth: 'No',
@@ -37,7 +43,9 @@
         convictions: 'No'
       },
       'steps.disabilities': {
-        disabilities: 'No'
+        disabilities: 'Yes',
+        mobility: true,
+        moreInfo: 'I will require a wheelchair'
       },
       'steps.occupation': {
         occupation: 'No'
