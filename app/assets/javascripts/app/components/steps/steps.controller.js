@@ -12,6 +12,7 @@
     var vm = this;
     vm.showActions = showActions;
     vm.gotoPrevStep = gotoPrevStep;
+    vm.manualDelay = manualDelay;
     vm.submitStep = submitStep;
     vm.cancel = cancel;
 
@@ -55,6 +56,14 @@
       if (prevStep) {
         $state.go(prevStep, null, {reload: true});
       }
+    }
+
+    function manualDelay () {
+      var data = { profile: { response: 'delay' } };
+
+      FormDataService.saveData(data);
+      
+      $state.go('steps.delay', null, {reload: true});
     }
 
     function submitStep (form) {

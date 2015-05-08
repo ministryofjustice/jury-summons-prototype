@@ -21,9 +21,11 @@
         title: 'Mr',
         name: 'John Smith',
         address: '102 Petty France,\nWestminster,\nLondon,\nSW1H 9AJ',
-        dobDay: 1,
-        dobMonth: 1,
-        dobYear: 2007,
+        dob: {
+          day: 1,
+          month: 1,
+          year: 2007
+        },
         email: 'moj@digital.justice.gov.uk',
         phone: '01234567890',
         alternativePhone: '01234567891'
