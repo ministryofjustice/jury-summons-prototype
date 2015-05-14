@@ -1,0 +1,10 @@
+h1.heading-xlarge You are ineligible
+p You must be over 18 and under 70 to currently serve on a jury.
+p You have told us you are {{ ::vm.age }}, with a date of birth of {{ ::vm.dob }}.
+p If this is correct, please confirm by submitting the form, please remember it is an offence to submit information you know to be incorrect.
+form(name='dobConfirm', ng-submit='vm.submit()', novalidate)
+  .form-group
+    input.button(type='submit', value='Confirm')
+    ul
+      li
+        a(ui-sref='steps.details') Change Date of Birth

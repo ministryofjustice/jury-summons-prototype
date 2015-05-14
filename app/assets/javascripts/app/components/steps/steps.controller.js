@@ -17,13 +17,13 @@
     vm.cancel = cancel;
 
     // send all session data to summary screen
-    if ($state.current.name === 'steps.summary') {
+    if ($state.is('steps.summary')) {
       vm.formData = FormDataService.getData();
     } else {
       vm.formData = angular.copy(FormDataService.getData($state.current.name));
     }
 
-    if ($state.current.name === 'steps.details') {
+    if ($state.is('steps.details')) {
       initPersonalDetails();
     }
 
@@ -70,9 +70,15 @@
       var nextStep = StepService.getNextStep($state.current.name);
       var data = {};
 
+      // if next step is available
       if (nextStep) {
-        data[$state.current.name] = vm.formData;      
+        data[$state.current.name] = vm.formData;
         FormDataService.saveData(data);
+
+        // check age
+        if (!FormDataService.validAge()) {
+          nextStep = 'ineligibleDob';
+        }
 
         $state.go(nextStep, null, {reload: true});
       } else {

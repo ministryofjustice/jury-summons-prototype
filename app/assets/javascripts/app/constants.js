@@ -1,4 +1,4 @@
-/* global _:false */
+/* global _:false, moment:false */
 (function () {
   'use strict';
 
@@ -6,6 +6,7 @@
     .module('app')
     // vendor libs
     .constant('_', _)
+    .constant('moment', moment)
     // app constants
     .constant('JURORS', [
       {
@@ -24,7 +25,7 @@
         dob: {
           day: 1,
           month: 1,
-          year: 2007
+          year: 1980
         },
         email: 'moj@digital.justice.gov.uk',
         phone: '01234567890',
