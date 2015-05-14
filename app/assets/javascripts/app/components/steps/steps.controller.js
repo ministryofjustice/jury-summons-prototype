@@ -5,10 +5,10 @@
     .module('app.steps')
     .controller('StepsController', StepsController);
 
-  StepsController.$inject = ['FormDataService', 'StepService', 'AuthService', '$state'];
+  StepsController.$inject = ['FormDataService', 'StepService', 'AuthService', '$state', '$stateParams'];
 
   /* @ngInject */
-  function StepsController(FormDataService, StepService, AuthService, $state) {
+  function StepsController(FormDataService, StepService, AuthService, $state, $stateParams) {
     var vm = this;
     vm.showActions = showActions;
     vm.gotoPrevStep = gotoPrevStep;

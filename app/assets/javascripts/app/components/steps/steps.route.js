@@ -25,7 +25,7 @@
       {
         state: 'steps.details',
         config: {
-          url: '/your-details',
+          url: '/your-details/:type?',
           views: {
             'form': {
               templateUrl: 'components/steps/personal-details.html'
@@ -36,7 +36,7 @@
       {
         state: 'steps.delay',
         config: {
-          url: '/delay',
+          url: '/delay/:type?',
           views: {
             'form': {
               templateUrl: 'components/steps/delay.html'
@@ -47,7 +47,7 @@
       {
         state: 'steps.excuse',
         config: {
-          url: '/excuse',
+          url: '/excuse/:type?',
           views: {
             'form': {
               templateUrl: 'components/steps/excuse.html'
@@ -58,7 +58,7 @@
       {
         state: 'steps.qualification',
         config: {
-          url: '/qualification',
+          url: '/qualification/:type?',
           views: {
             'form': {
               templateUrl: 'components/steps/qualification.html'
@@ -69,7 +69,7 @@
       {
         state: 'steps.disabilities',
         config: {
-          url: '/disabilities',
+          url: '/disabilities/:type?',
           views: {
             'form': {
               templateUrl: 'components/steps/disabilities.html'
@@ -80,7 +80,7 @@
       {
         state: 'steps.occupation',
         config: {
-          url: '/occupation',
+          url: '/occupation/:type?',
           views: {
             'form': {
               templateUrl: 'components/steps/occupation.html'
@@ -91,7 +91,7 @@
       {
         state: 'steps.summary',
         config: {
-          url: '/summary',
+          url: '/summary/',
           views: {
             'form': {
               templateUrl: 'components/steps/summary.html'
