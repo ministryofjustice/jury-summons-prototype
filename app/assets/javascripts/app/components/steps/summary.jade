@@ -1,9 +1,27 @@
 h1.heading-xlarge Check details
 p Check and change any details that are incorrect.
+//- delaying
+div(ng-if="vm.formData.profile.response === 'delay'")
+  h2.summary-heading
+    | Delaying jury service
+    a(ui-sref="steps.delay({type: 'edit'})", ui-sref-opts='{reload: true}') Change this
+  dl.summary-table
+    dt Why do you want to do jury service?
+    dd {{ vm.formData['steps.delay'].reason }}
+    dt When do you want to do jury service?
+    dd {{ vm.formData['steps.delay'].availableDates }}
+//- excusing
+div(ng-if="vm.formData.profile.response === 'excuse'")
+  h2.summary-heading
+    | Request for excusal
+    a(ui-sref="steps.excuse({type: 'edit'})", ui-sref-opts='{reload: true}') Change this
+  dl.summary-table
+    dt What is the reason you need to be excused?
+    dd {{ vm.formData['steps.excuse'].reason }}
 //- details
 h2.summary-heading
   | Your details
-  a(ui-sref='steps.details', ui-sref-opts='{reload: true}') Change this
+  a(ui-sref="steps.details({type: 'edit'})", ui-sref-opts='{reload: true}') Change this
 dl.summary-table.summary-table--inline
   dt Title:
   dd.first-child {{ vm.formData['steps.details'].title }}
@@ -19,26 +37,10 @@ dl.summary-table.summary-table--inline
   dd {{ vm.formData['steps.details'].phone }}
   dt Alternative Phone:
   dd {{ vm.formData['steps.details'].alternativePhone }}
-//- delaying
-div(ng-if="vm.formData.profile.response === 'delay'")
-  h2.summary-heading
-    | Delaying jury service
-    a(ui-sref='steps.delay', ui-sref-opts='{reload: true}') Change this
-  dl.summary-table
-    dt When do you want to do jury service?
-    dd {{ vm.formData['steps.delay'].availableDates }}
-//- excusing
-div(ng-if="vm.formData.profile.response === 'excuse'")
-  h2.summary-heading
-    | Request for excusal
-    a(ui-sref='steps.excuse', ui-sref-opts='{reload: true}') Change this
-  dl.summary-table
-    dt What is the reason you need to be excused?
-    dd {{ vm.formData['steps.excuse'].reason }}
 //- qualification
 h2.summary-heading
   | Are you qualified?
-  a(ui-sref='steps.qualification', ui-sref-opts='{reload: true}') Change this
+  a(ui-sref="steps.qualification({type: 'edit'})", ui-sref-opts='{reload: true}') Change this
 dl.summary-table
   dt Have you lived in the UK, channel islands or ...?
   dd 
@@ -59,7 +61,7 @@ dl.summary-table
 //- disabilities
 h2.summary-heading
   | Disability and special needs?
-  a(ui-sref='steps.disabilities', ui-sref-opts='{reload: true}') Change this
+  a(ui-sref="steps.disabilities({type: 'edit'})", ui-sref-opts='{reload: true}') Change this
 dl.summary-table
   dt Do you have any disability or impairment...?
   dd 
@@ -78,7 +80,7 @@ dl.summary-table
 //- occupation
 h2.summary-heading
   | Occupation?
-  a(ui-sref='steps.occupation', ui-sref-opts='{reload: true}') Change this
+  a(ui-sref="steps.occupation({type: 'edit'})", ui-sref-opts='{reload: true}') Change this
 dl.summary-table
   dt Have you been in the last 5 years...?
   dd 

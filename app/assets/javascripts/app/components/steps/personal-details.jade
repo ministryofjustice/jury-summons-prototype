@@ -2,8 +2,8 @@ h1.heading-xlarge Your details
 
 //- Title
 .form-group
-  label.form-label(for='title') Title
-  input#title.form-control(type='text', name='title', ng-model='vm.formData.title', required)
+  label.form-label(for='title') Title (optional)
+  input#title.form-control(type='text', name='title', ng-model='vm.formData.title')
 //- Full name
 .form-group
   label.form-label(for='name') Full name
@@ -45,8 +45,14 @@ h1.heading-xlarge Your details
       p If you can&rsquo;t provide your date of birth you&rsquo;ll have to send copies of identity documents through the post.
 //- Email address
 .form-group
-  label.form-label(for='email') Email address
-  input#email.form-control(type='email', name='email', ng-model='vm.formData.email', required)
+  label.form-label(for='email') Email address (optional)
+  input#email.form-control(type='email', name='email', ng-model='vm.formData.email')
+.form-group
+  details
+    summary
+      span.summary Why do we ask for your email address?
+    .panel-indent
+      p If you provide your email address we will communicate with you by email
 //- Phone
 .form-group
   label.form-label(for='phone') Phone

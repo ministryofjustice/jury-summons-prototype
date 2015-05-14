@@ -13,7 +13,9 @@
     var service = {
       saveData: saveData,
       clearData: clearData,
-      getData: getData
+      getData: getData,
+      getAge: getAge,
+      validAge: validAge
     };
     return service;
 
@@ -34,6 +36,27 @@
       }
 
       return formData[step] || {};
+    }
+
+    function getAge(dobObj) {
+      var dob = getData('steps.details').dob;
+      var birthDate = moment({
+        day: dob.day,
+        month: dob.month,
+        year: dob.year
+      });
+
+      return moment().diff(birthDate, 'years');
+    }
+
+    function validAge () {
+      var age = getAge();
+
+      if (age >= 18 && age <= 70) {
+        return true;
+      }
+
+      return false;
     }
   }
 })();

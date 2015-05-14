@@ -1,4 +1,4 @@
-/* global _:false */
+/* global _:false, moment:false */
 (function () {
   'use strict';
 
@@ -6,12 +6,14 @@
     .module('app')
     // vendor libs
     .constant('_', _)
+    .constant('moment', moment)
     // app constants
     .constant('JURORS', [
       {
         id: '54291234',
+        postcode: 'SW11AA',
         name: 'John Smith',
-        address: '211,\nWest Block,\nLondon\nSE1 7GL',
+        address: 'Buckingham Palace,\nLondon,\nSW11AA',
         court: 'Blackfriars Crown Court',
         datetime: '2015-09-20T09:15'
       }
@@ -24,13 +26,14 @@
         dob: {
           day: 1,
           month: 1,
-          year: 2007
+          year: 1980
         },
         email: 'moj@digital.justice.gov.uk',
         phone: '01234567890',
         alternativePhone: '01234567891'
       },
       'steps.delay': {
+        'reason': 'I have already booked and paid for a holiday on those dates',
         'availableDates': 'Anytime in June/July/August'
       },
       'steps.excuse': {

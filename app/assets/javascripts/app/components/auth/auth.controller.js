@@ -16,13 +16,12 @@
     ////////////////
 
     function login(form) {
-      if (form.$valid) {
-        var attemptLogin = AuthService.login(vm.jurorNumber);
+      if (form.$valid || form.jurorNumber.$error.valid) {
+        var attemptLogin = AuthService.login(vm.jurorNumber, vm.postcode);
 
         if (!attemptLogin) {
-          if (vm.jurorNumber) {
-            form.jurorNumber.$setValidity('valid', false);
-          }
+          form.jurorNumber.$setValidity('valid', false);
+          form.postcode.$setValidity('valid', false);
           return;
         }
         $state.go('profile');
