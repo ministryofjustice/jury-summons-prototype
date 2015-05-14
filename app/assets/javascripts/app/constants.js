@@ -1,4 +1,4 @@
-/* global _:false */
+/* global _:false, moment:false */
 (function () {
   'use strict';
 
@@ -6,6 +6,7 @@
     .module('app')
     // vendor libs
     .constant('_', _)
+    .constant('moment', moment)
     // app constants
     .constant('JURORS', [
       {
