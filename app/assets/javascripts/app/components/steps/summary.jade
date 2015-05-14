@@ -6,6 +6,8 @@ div(ng-if="vm.formData.profile.response === 'delay'")
     | Delaying jury service
     a(ui-sref="steps.delay({type: 'edit'})", ui-sref-opts='{reload: true}') Change this
   dl.summary-table
+    dt Why do you want to do jury service?
+    dd {{ vm.formData['steps.delay'].reason }}
     dt When do you want to do jury service?
     dd {{ vm.formData['steps.delay'].availableDates }}
 //- excusing

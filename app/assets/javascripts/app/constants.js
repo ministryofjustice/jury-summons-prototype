@@ -32,6 +32,7 @@
         alternativePhone: '01234567891'
       },
       'steps.delay': {
+        'reason': 'I have already booked and paid for a holiday on those dates',
         'availableDates': 'Anytime in June/July/August'
       },
       'steps.excuse': {
