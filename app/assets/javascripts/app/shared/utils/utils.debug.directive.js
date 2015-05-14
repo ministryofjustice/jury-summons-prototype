@@ -57,7 +57,7 @@
     }
 
     function login () {
-      AuthService.login(JURORS[0].id);
+      AuthService.login(JURORS[0].id, JURORS[0].postcode);
       vm.debugExpanded = false;
       $state.go('profile');
     }
