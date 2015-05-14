@@ -42,6 +42,11 @@
       var current = _.findWhere(STEPS, {route: currentRoute});
       var index = STEPS.indexOf(current);
 
+      // if it was only an edit, redirect back to summary
+      if ($state.params.type === 'edit') {
+        return STEPS[STEPS.length - 1].route;
+      }
+
       if ((index + 1) < STEPS.length) {
         var next = STEPS[index + 1];
         var data = FormDataService.getData();

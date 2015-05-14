@@ -5,10 +5,10 @@
     .module('app.ineligibleDob')
     .controller('IneligibleDobController', IneligibleDobController);
 
-  IneligibleDobController.$inject = ['AuthService', 'FormDataService', 'StepService', '$state', 'moment'];
+  IneligibleDobController.$inject = ['FormDataService', '$state'];
 
   /* @ngInject */
-  function IneligibleDobController(AuthService, FormDataService, StepService, $state, moment) {
+  function IneligibleDobController(FormDataService, $state) {
     var vm = this;
     vm.age = FormDataService.getAge();
     vm.dob = getDob();
