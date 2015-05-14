@@ -29,9 +29,10 @@
       }
     }
 
-    function login(user) {
+    function login(jurorNumber, postcode) {
       var juror = _.findWhere(JURORS, {
-        id: user.replace(/ /g,'')
+        id: (jurorNumber || '').replace(/ /g,''),
+        postcode: (postcode || '').replace(/ /g,'').toUpperCase()
       });
 
       if (juror) {

@@ -7,15 +7,24 @@ h1.heading-xlarge Jury Summons
   ol
     li.validation-message(ng-show='loginForm.jurorNumber.$error.required')
       a(href='#juror-number') Juror number - cannot be blank
-    li.validation-message(ng-show='loginForm.jurorNumber.$error.valid')
-      a(href='#juror-number') Juror number - is either invalid or not on our system
+    li.validation-message(ng-show='loginForm.jurorNumber.$error.valid && loginForm.postcode.$error.valid')
+      a(href='#juror-number') Your Juror Number and Postcode do not match what we have on record
+    li.validation-message(ng-show='loginForm.postcode.$error.required')
+      a(href='#postcode') Postcode - cannot be blank
 form.form(name='loginForm', ng-submit='vm.login(loginForm)', novalidate='')
   .form-group(ng-class="{'validation-error': loginForm.$submitted && !loginForm.jurorNumber.$valid}")
     label.form-label-bold(for='juror-number')
       | Juror number
       span.validation-message(ng-show='loginForm.$submitted && loginForm.jurorNumber.$error.required') cannot be blank
-      span.validation-message(ng-show='loginForm.$submitted && loginForm.jurorNumber.$error.valid') is either invalid or not on our system
+      span.validation-message(ng-show='loginForm.$submitted && loginForm.jurorNumber.$error.valid') does not match what we have on record
     p.form-hint For example, 54291234
     input#juror-number.form-control(type='text', name='jurorNumber', ng-model='vm.jurorNumber', required='')
+  .form-group(ng-class="{'validation-error': loginForm.$submitted && !loginForm.postcode.$valid}")
+    label.form-label-bold(for='postcode')
+      | Postcode
+      span.validation-message(ng-show='loginForm.$submitted && loginForm.postcode.$error.required') cannot be blank
+      span.validation-message(ng-show='loginForm.$submitted && loginForm.postcode.$error.valid') does not match what we have on record
+    p.form-hint As shown on your summons
+    input#postcode.form-control(type='text', name='postcode', ng-model='vm.postcode', required='')
   .form-group
     input.button(type='submit', value='Login')

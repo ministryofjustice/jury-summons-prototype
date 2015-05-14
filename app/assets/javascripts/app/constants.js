@@ -11,8 +11,9 @@
     .constant('JURORS', [
       {
         id: '54291234',
+        postcode: 'SW11AA',
         name: 'John Smith',
-        address: '211,\nWest Block,\nLondon\nSE1 7GL',
+        address: 'Buckingham Palace,\nLondon,\nSW11AA',
         court: 'Blackfriars Crown Court',
         datetime: '2015-09-20T09:15'
       }
