@@ -8,7 +8,7 @@
   border-left: 4px solid $border-colour;
 
   padding: 10px 0 10px $gutter-half;
-  margin: ($gutter $gutter-half $gutter*1.5 0);
+  margin: $gutter 0;
 
   &.large {
     padding-top: 20px;
