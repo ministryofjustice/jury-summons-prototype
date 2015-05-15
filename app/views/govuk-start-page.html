@@ -1,0 +1,99 @@
+{{<govuk_template}}
+
+{{$head}}
+  {{>includes/head}}
+  <link href="/public/stylesheets/govuk/application.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/public/stylesheets/govuk/static.css" media="screen" rel="stylesheet" type="text/css" />
+{{/head}}
+
+{{$insideHeader}}
+  <a href="#search" class="search-toggle js-header-toggle">Search</a>
+  <form id="search" class="site-search" action="https://gov.uk/search" method="get" role="search">
+    <div class="content">
+      <label for="site-search-text">Search</label>
+      <input type="search" name="q" id="site-search-text" title="Search" class="js-search-focus"><input class="submit" type="submit" value="Search">
+    </div>
+  </form>
+{{/insideHeader}}
+
+{{$content}}
+  <div id="global-breadcrumb" class="header-context">
+    <ol role="breadcrumbs" class="group">
+      <li><a href="https://gov.uk/">Home</a></li>
+      <li><strong><a href="https://gov.uk/browse/justice">Crime, justice and the law</a></strong></li>
+    </ol>
+  </div>
+
+  <div id="wrapper">
+    <div class="grid-row">
+      <main id="content" role="main" class="">
+        <header class="page-header">
+          <div>
+            <h1>Arrange your jury service</h1>
+          </div>
+        </header>
+        <div class="article-container group">
+          <div class="content-block">
+            <div class="inner">
+              <section class="intro">
+                <div class="get-started-intro">
+                  <p>Fill in the online form to arrange your jury service.</p>
+                  <ul>
+                  <li>You’ll need your Juror Number from the letter we sent to you</li>
+                  <li>You must arrange your service within 7 days of receiving your letter</li>
+                  <li>You’ll be able to apply to delay the date or be excused if you have a genuine reason for doing so</li>
+                  <li>Arranging your jury service will take less than 10  minutes</li>
+                  </ul>
+                </div>
+                <p id="get-started" class="get-started group">
+                  <a href="{{ serviceUrl }}" rel="external" class="button button-get-started" role="button">Start now</a>
+                </p>
+              </section>
+              <section class="more">
+                <div id="before-you-start">
+                  <h2>How long will it last?</h2>
+                  <p>Jury service usually lasts for up to two weeks. If a trial is likely to last longer you’ll be asked if this will be difficult for you. You may sit on more than one trial.</p>
+                  <h2>How do I take time off work?</h2>
+                  <p>Show your employer the letter we’ve sent you, to confirm your jury service. They must let you <a href="https://www.gov.uk/jury-service/taking-time-off-work">take the time off work</a> but might ask you to rearrange the date.</p>
+                  <h2>What can I claim?</h2>
+                  <p>You should be <a href="https://www.gov.uk/jury-service/what-you-can-claim">able to claim</a> for travel, food and drink, loss of earnings and other expenses.</p>
+                  <h2>What will I do on jury service?</h2>
+                  <p>On your first day at court, you’ll be shown a film called <a href="https://www.youtube.com/watch?v=JP7slp-X9Pc" rel="external">'Your role as a juror'</a>. It explains what happens in the courtroom and your responsibilities.</p>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </main>
+      <div class="related-container">
+        <div class="related" id="related">
+          <div class="inner group related-other">
+            <h2 id="parent-other">Elsewhere on GOV.UK</h2>
+            <nav role="navigation" aria-labelledby="parent-other">
+              
+            </nav>
+          </div>
+          <div class="inner group">
+            <a class="return-to-top" href="#content">Return to top ↑</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/content}}
+
+{{$footerSupportLinks}}
+  <h2 class="visuallyhidden">Support links</h2>
+  <ul>
+    <li><a href="https://gov.uk/help">Help</a></li>
+    <li><a href="https://gov.uk/help/cookies">Cookies</a></li>
+    <li><a href="https://gov.uk/contact">Contact</a></li>
+    <li>Built by <a href="https://mojdigital.blog.gov.uk/"><abbr title="Ministry of Justice">MOJ</abbr> Digital</a></li>
+  </ul>
+{{/footerSupportLinks}}
+
+{{$bodyEnd}}
+  {{>includes/scripts}}
+{{/bodyEnd}}
+
+{{/govuk_template}}
