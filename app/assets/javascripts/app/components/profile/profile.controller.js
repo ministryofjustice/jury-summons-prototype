@@ -5,12 +5,13 @@
     .module('app.profile')
     .controller('ProfileController', ProfileController);
 
-  ProfileController.$inject = ['AuthService', 'FormDataService', 'StepService', '$state'];
+  ProfileController.$inject = ['AuthService', 'FormDataService', 'StepService', '$state', '$sce', '$filter'];
 
   /* @ngInject */
-  function ProfileController(AuthService, FormDataService, StepService, $state) {
+  function ProfileController(AuthService, FormDataService, StepService, $state, $sce, $filter) {
     var vm = this;
     vm.juror = AuthService.getJuror();
+    vm.juror.court.address = $sce.trustAsHtml($filter('nl2br')(vm.juror.court.address));
     vm.sessionData = FormDataService.getData();
     vm.formData = vm.sessionData[$state.current.name] || {};
     vm.submit = submit;

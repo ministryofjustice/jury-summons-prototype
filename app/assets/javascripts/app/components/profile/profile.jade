@@ -1,10 +1,11 @@
-h1.heading-xlarge Your jury service
-p Please find the date and court details below.
+h1.heading-xlarge Details of your jury service
+p You must go to the court on the date and at the time below.
 .panel-indent.large.panel-background
   p.bold-medium
-    | {{ vm.juror.court }}
+    span(ng-bind='vm.juror.court.name')
     br
-    | {{ vm.juror.datetime | date:'H:mma, d MMMM yyyy'}}
+    span(ng-bind-html='vm.juror.court.address')
+  p.bold-medium {{ vm.juror.datetime | date:'H:mma on EEEE d MMMM yyyy'}}
   p 
     | {{ vm.juror.name }}
     br
@@ -13,14 +14,13 @@ hr.line
 form.form(name='profileForm', ng-submit='vm.submit()', novalidate)
   fieldset
     legend.form-label-bold How would you like to respond to your jury summons?
-    p.hint Short intro info around their options - once deferral per 12months, excusal reason to be really good. More info in the guide below or a direct link to the digital guide.
     .form-group
       label.block-label(for='accept')
         input(type='radio', value='accept', id='accept', name='response', ng-model='vm.formData.response')
-        | Accept and complete your summons
+        | Accept this date and complete your form
       label.block-label(for='delay')
         input(type='radio', value='delay', id='delay', name='response', ng-model='vm.formData.response')
-        | Delay your jury service
+        | Delay until a later date
       label.block-label(for='excuse')
         input(type='radio', value='excuse', id='excuse', name='response', ng-model='vm.formData.response')
         | Apply to be excused
@@ -29,13 +29,7 @@ form.form(name='profileForm', ng-submit='vm.submit()', novalidate)
       input.button.button-get-started(type='submit', value='Start now')
 hr.line
 section
-  h2.bold-medium Court details
-  p How to get there, location, things they need to know - map of the location.
+  h2.bold-medium Get details about the court
+  p Find out how to get there, when it’s open, and what facilities are on offer.
   p
-    a(href='') Find out more about London Crown Court  
-hr.line
-section
-  h2.bold-medium Guide and jury service information
-  p What is jury service, why we need them. What is expected of the jurors - timelines, expenses
-  p
-    a(href='') Find out more about jury service
+    a(href='{{ vm.juror.court.url }}', rel='external') Find out more about {{ vm.juror.court.name }}

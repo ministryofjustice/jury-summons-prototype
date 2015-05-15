@@ -1,6 +1,6 @@
-h1.heading-xlarge Jury Summons
+h1.heading-xlarge Arrange your jury service
 .text
-  p.lede Please enter your juror number which can be found at the top of your Jury Summons.
+  p.lede Enter your Juror Number and postcode to get started. You’ll find your Juror Number on the letter we sent you.
 .validation-summary(ng-show='loginForm.$submitted && loginForm.$invalid')
   h1 There was a problem submitting the form
   p Because of the following problems:
@@ -27,4 +27,4 @@ form.form(name='loginForm', ng-submit='vm.login(loginForm)', novalidate='')
     p.form-hint As shown on your summons
     input#postcode.form-control(type='text', name='postcode', ng-model='vm.postcode', required='')
   .form-group
-    input.button(type='submit', value='Login')
+    input.button(type='submit', value='Sign in')
