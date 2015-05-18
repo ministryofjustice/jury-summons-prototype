@@ -4,7 +4,7 @@ p You must go to the court on the date and at the time below.
   p.bold-medium
     span(ng-bind='vm.juror.court.name')
     br
-    span(ng-bind-html='vm.juror.court.address')
+    span(ng-bind-html='vm.juror.court.address|nl2br')
   p.bold-medium {{ vm.juror.datetime | date:'H:mma on EEEE d MMMM yyyy'}}
   p 
     | {{ vm.juror.name }}
