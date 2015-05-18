@@ -18,11 +18,14 @@
     ////////////////
 
     function submit () {
-      var nextStep = StepService.getNextStep($state.current.name);
       var data = {};
+      var nextStep;
 
       data[$state.current.name] = vm.formData;      
       FormDataService.saveData(data);
+
+      // don't get step until data has been saved
+      nextStep = StepService.getNextStep($state.current.name);
 
       $state.go(nextStep);
     }

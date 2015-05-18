@@ -40,7 +40,13 @@
 
     function getAge(dobObj) {
       var dob = getData('steps.details').dob;
-      var birthDate = moment({
+      var birthDate;
+
+      if (!dob) {
+        return;
+      }
+
+      birthDate = moment({
         day: dob.day,
         month: dob.month,
         year: dob.year
@@ -52,7 +58,9 @@
     function validAge () {
       var age = getAge();
 
-      if (age >= 18 && age <= 70) {
+      // console.log(age);
+
+      if (typeof age === 'undefined' || (age && age >= 18 && age <= 70)) {
         return true;
       }
 
