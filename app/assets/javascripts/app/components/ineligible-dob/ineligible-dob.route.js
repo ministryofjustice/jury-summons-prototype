@@ -16,7 +16,7 @@
       {
         state: 'ineligibleDob',
         config: {
-          url: '/apply/ineligible',
+          url: '/apply/dob-check',
           templateUrl: 'components/ineligible-dob/ineligible-confirm.html',
           controller: 'IneligibleDobController',
           controllerAs: 'vm',

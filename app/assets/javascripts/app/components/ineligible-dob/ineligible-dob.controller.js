@@ -19,6 +19,10 @@
     function getDob () {
       var formData = FormDataService.getData('steps.details');
 
+      if (!formData.dob) {
+        return;
+      }
+      
       return formData.dob.day + '/' + formData.dob.month + '/' + formData.dob.year;
     }
 

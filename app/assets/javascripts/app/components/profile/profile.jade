@@ -1,5 +1,5 @@
 h1.heading-xlarge Details of your jury service
-p You must go to the court on the date and at the time below.
+p You have been selected to go to court on the date and time below.
 .panel-indent.large.panel-background
   p.bold-medium
     span(ng-bind='vm.juror.court.name')
@@ -13,7 +13,7 @@ p You must go to the court on the date and at the time below.
 hr.line
 form.form(name='profileForm', ng-submit='vm.submit()', novalidate)
   fieldset
-    legend.form-label-bold How would you like to respond to your jury summons?
+    legend.form-label-bold How would you like to respond?
     .form-group
       label.block-label(for='accept')
         input(type='radio', value='accept', id='accept', name='response', ng-model='vm.formData.response')
@@ -26,7 +26,7 @@ form.form(name='profileForm', ng-submit='vm.submit()', novalidate)
         | Apply to be excused
   fieldset
     .form-group
-      input.button.button-get-started(type='submit', value='Start now')
+      input.button.button-get-started(type='submit', value='Continue')
 hr.line
 section
   h2.bold-medium Get details about the court

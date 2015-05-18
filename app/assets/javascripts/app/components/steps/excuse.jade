@@ -1,13 +1,9 @@
-h1.heading-xlarge Request to be excused
-p Excusal reasons are limited, it must be one of the following:
-ul.list-bullet
-  li Reason one
-  li Reason two
+h1.heading-xlarge Apply to be excused
+p You’ll only be released from jury service if you have a very good reason for not serving. We may ask to see evidence. In most cases, you’ll be offered a delay instead.
 p 
-  | If in doubt,&nbsp;
-  a(href='', ng-click='vm.manualDelay()') delay your service
-  | &nbsp;instead
-h2.bold-large Why do you need to be excused?
+  | Would you prefer to reschedule?&nbsp;
+  a(href='', ng-click='vm.manualDelay()') Find a new date
+p If you’ve already served on a jury in the last two years you won’t have to sit again this time. Please give us details of the court you attended.
 .form-group
-  label.form-label(for='reason') Please give details about your reason
+  label.form-label-bold(for='reason') Please explain why you want to be excused
   textarea#reason.form-control.form-control--full(name='reason', rows='6', ng-model='vm.formData.reason', required)

@@ -23,6 +23,7 @@
       scope: {
         label: '@',
         hint: '@',
+        helpLink: '@',
         name: '@',
         model: '='
       }

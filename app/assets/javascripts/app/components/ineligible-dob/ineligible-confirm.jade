@@ -1,10 +1,11 @@
-h1.heading-xlarge You are ineligible
-p You must be over 18 and under 70 to currently serve on a jury.
-p You have told us you are {{ ::vm.age }}, with a date of birth of {{ ::vm.dob }}.
-p If this is correct, please confirm by submitting the form, please remember it is an offence to submit information you know to be incorrect.
+h1.heading-xlarge Is your date of birth correct?
+p You told us your date of birth was {{ ::vm.dob }}.
+p That makes you {{ ::vm.age }} years old.
+p You are outside the current age range for serving on a jury, which is from 18 to 70.
+p Please note, it’s a criminal offence punishable by a fine of up to £1,000 if you give false information to try and get out of jury service.
 form(name='dobConfirm', ng-submit='vm.submit()', novalidate)
   .form-group
-    input.button(type='submit', value='Confirm')
+    input.button(type='submit', value='Yes, my date of birth is correct')
     ul
       li
-        a(ui-sref='steps.details') Change Date of Birth
+        a(ui-sref='steps.details') Change date of birth

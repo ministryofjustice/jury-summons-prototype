@@ -1,14 +1,14 @@
-h1.heading-xlarge Qualification
+h1.heading-xlarge Are you qualified for jury service?
+p There are some situations where you may not be able to do jury service.
 yesno(
   model='vm.formData.residence',
   name='residence',
-  label='Have you lived in the UK, channel islands or ...?',
-  hint='Extra help text area to give more information'
+  label='From your 13th birthday have you lived in the UK, Channel Islands or Isle of Man for five consecutive years?'
 )
 conditionalinfo(
   model='vm.formData.residenceInfo',
   name='residenceInfo',
-  label='Please give more details',
+  label='Please give details',
   trigger='vm.formData.residence',
   required='true',
   reverse='true'
@@ -16,39 +16,38 @@ conditionalinfo(
 yesno(
   model='vm.formData.mentalHealth',
   name='mentalHealth',
-  label='Question about the mental capabilities...?',
-  hint='Extra help text area to give more information'
+  label='Are you liable to be, or are you being, detained or treated under the Mental Health Act 1983 or lack capacity as defined in the Mental Capacity Act 2005?',
+  help-link='http://google.co.uk'
 )
 conditionalinfo(
   model='vm.formData.mentalHealthInfo',
   name='mentalHealthInfo',
-  label='Please give more details',
+  label='Please give details',
   trigger='vm.formData.mentalHealth',
   required='true'
 )
 yesno(
   model='vm.formData.bail',
   name='bail',
-  label='Are you on bail?',
-  hint='Extra help text area to give more information'
+  label='Are you on bail for a criminal offence?'
 )
 conditionalinfo(
   model='vm.formData.bailInfo',
   name='bailInfo',
-  label='Please give more details',
+  label='Please give details',
   trigger='vm.formData.bail',
   required='true'
 )
 yesno(
   model='vm.formData.convictions',
   name='convictions',
-  label='Have you even been convicted?',
-  hint='Extra help text area to give more information'
+  label='Have you been convicted for an offence and been given a sentence?',
+  help-link='http://google.co.uk'
 )
 conditionalinfo(
   model='vm.formData.convictionsInfo',
   name='convictionsInfo',
-  label='Please give more details',
+  label='Please give details',
   trigger='vm.formData.convictions',
   required='true'
 )
