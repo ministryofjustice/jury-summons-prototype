@@ -67,13 +67,17 @@
     }
 
     function submitStep (form) {
-      var nextStep = StepService.getNextStep($state.current.name);
+      var hasNextStep = StepService.hasNextStep($state.current.name);
+      var nextStep;
       var data = {};
 
       // if next step is available
-      if (nextStep) {
+      if (hasNextStep) {
         data[$state.current.name] = vm.formData;
         FormDataService.saveData(data);
+
+        // don't get step until data has been saved
+        nextStep = StepService.getNextStep($state.current.name);
 
         // check age
         if (!FormDataService.validAge()) {
@@ -88,8 +92,8 @@
     }
 
     function cancel () {
-      FormDataService.clearData();
-      $state.go('profile', null, {reload: true});
+      AuthService.clearSession();
+      $state.go('cancelled', null, {reload: true});
     }
   }
 })();

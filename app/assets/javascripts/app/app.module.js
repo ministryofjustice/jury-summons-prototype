@@ -9,5 +9,6 @@
       'app.steps',
       'app.ineligibleDob',
       'app.confirmation',
+      'app.cancelled',
     ]);
 })();

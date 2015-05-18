@@ -1,12 +1,12 @@
-h1.heading-xlarge Disabilities
+h1.heading-xlarge Will you need help in court?
 yesno(
   model='vm.formData.disabilities',
   name='disabilities',
-  label='Do you have any disability or impairment...?'
+  label='Do you have a disability or special need that means you’ll need extra help carrying out your jury service?'
 )
 .panel-indent(ng-if="vm.formData.disabilities === 'Yes'")
   fieldset.form-group
-    legend.form-label Please select appropriate one(s) below
+    legend.form-label I have:
     label.block-label(for='visual')
       input(type='checkbox', value='Visual Impairment', id='visual', name='visual', ng-model='vm.formData.visual')
       | Visual impairment
@@ -20,5 +20,6 @@ yesno(
       input(type='checkbox', value='Other', id='other', name='other', ng-model='vm.formData.other')
       | Other
   .form-group
-    label.form-label(for='disabilitiesInfo') Please give more details (optional)
+    label.form-label(for='disabilitiesInfo') I will need:
     textarea#disabilitiesInfo.form-control(name='disabilitiesInfo', rows='3', ng-model='vm.formData.moreInfo')
+  p We may also be able to arrange a visit to the court for you to make sure the facilities meet your specific needs.
