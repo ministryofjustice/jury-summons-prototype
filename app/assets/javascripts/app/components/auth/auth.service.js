@@ -13,7 +13,8 @@
       isAuthenticated: isAuthenticated,
       getJuror: getJuror,
       login: login,
-      logout: logout
+      logout: logout,
+      clearSession: clearSession
     };
     return service;
 
@@ -41,6 +42,11 @@
       }
       
       return false;
+    }
+
+    function clearSession() {
+      delete $sessionStorage.userId;
+      FormDataService.clearData();
     }
 
     function logout() {

@@ -10,6 +10,10 @@
   /* @ngInject */
   function run($rootScope, $state, AuthService) {
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+      if (toState.name == 'cancelled') {
+        return;
+      }
+
       if (toState.name == 'login' && fromState.name != 'login'){
         if(AuthService.isAuthenticated()){
           $state.go('profile');
