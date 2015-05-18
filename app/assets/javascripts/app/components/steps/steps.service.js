@@ -12,6 +12,7 @@
     var service = {
       getPrevStep: getPrevStep,
       getNextStep: getNextStep,
+      hasNextStep: hasNextStep,
       canAccessStep: canAccessStep
     };
     return service;
@@ -36,6 +37,16 @@
         return next.route;
       }
       return;
+    }
+
+    function hasNextStep(currentRoute) {
+      var current = _.findWhere(STEPS, {route: currentRoute});
+      var index = STEPS.indexOf(current);
+
+      if ((index + 1) < STEPS.length) {
+        return true;
+      }
+      return false;
     }
 
     function getNextStep(currentRoute) {
