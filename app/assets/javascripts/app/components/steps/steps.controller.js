@@ -92,8 +92,8 @@
     }
 
     function cancel () {
-      FormDataService.clearData();
-      $state.go('profile', null, {reload: true});
+      AuthService.clearSession();
+      $state.go('cancelled', null, {reload: true});
     }
   }
 })();
