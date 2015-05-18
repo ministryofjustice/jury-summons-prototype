@@ -1,69 +1,69 @@
-h1.heading-xlarge Check details
-p Check and change any details that are incorrect.
+h1.heading-xlarge Are your details correct?
+p Please make any changes needed.
 //- delaying
 div(ng-if="vm.formData.profile.response === 'delay'")
   h2.summary-heading
-    | Delaying jury service
+    | Delay until a later date
     a(ui-sref="steps.delay({type: 'edit'})", ui-sref-opts='{reload: true}') Change this
   dl.summary-table
-    dt Why do you want to do jury service?
+    dt Please explain why you want to delay your jury service
     dd {{ vm.formData['steps.delay'].reason }}
-    dt When do you want to do jury service?
+    dt Please give dates in the next 12 months when you’ll be available for jury service
     dd {{ vm.formData['steps.delay'].availableDates }}
 //- excusing
 div(ng-if="vm.formData.profile.response === 'excuse'")
   h2.summary-heading
-    | Request for excusal
+    | Apply to be excused
     a(ui-sref="steps.excuse({type: 'edit'})", ui-sref-opts='{reload: true}') Change this
   dl.summary-table
-    dt What is the reason you need to be excused?
+    dt Please explain why you want to be excused
     dd {{ vm.formData['steps.excuse'].reason }}
 //- details
 h2.summary-heading
-  | Your details
+  | About you
   a(ui-sref="steps.details({type: 'edit'})", ui-sref-opts='{reload: true}') Change this
 dl.summary-table.summary-table--inline
   dt Title:
   dd.first-child {{ vm.formData['steps.details'].title }}
-  dt Your name:
+  dt Name:
   dd {{ vm.formData['steps.details'].name }}
   dt Address:
   dd {{ vm.formData['steps.details'].address }}
-  dt Date of Birth:
+  dt Date of birth:
   dd {{ vm.formData['steps.details'].dob.day }}/{{ vm.formData['steps.details'].dob.month }}/{{ vm.formData['steps.details'].dob.year }}
   dt Email:
   dd {{ vm.formData['steps.details'].email }}
   dt Phone:
   dd {{ vm.formData['steps.details'].phone }}
-  dt Alternative Phone:
+  dt Alternative phone:
   dd {{ vm.formData['steps.details'].alternativePhone }}
 //- qualification
 h2.summary-heading
-  | Are you qualified?
+  | Are you qualified for jury service?
   a(ui-sref="steps.qualification({type: 'edit'})", ui-sref-opts='{reload: true}') Change this
 dl.summary-table
-  dt Have you lived in the UK, channel islands or ...?
+  dt From your 13th birthday have you lived in the UK, Channel Islands or Isle of Man for five consecutive years?
   dd 
     | {{ vm.formData['steps.qualification'].residence }}
     span(ng-if="vm.formData['steps.qualification'].residence === 'No'") . {{ vm.formData['steps.qualification'].residenceInfo }}
-  dt Question about the mental capabilities...?
+  dt Are you liable to be, or are you being, detained or treated under the Mental Health Act 1983 or lack capacity as defined in the Mental Capacity Act 2005?
   dd 
     |{{ vm.formData['steps.qualification'].mentalHealth }}
     span(ng-if="vm.formData['steps.qualification'].mentalHealth === 'Yes'") . {{ vm.formData['steps.qualification'].mentalHealthInfo }}
-  dt Are you on bail?
+  dt Are you on bail for a criminal offence?
   dd 
     | {{ vm.formData['steps.qualification'].bail }}
     span(ng-if="vm.formData['steps.qualification'].bail === 'Yes'") . {{ vm.formData['steps.qualification'].bailInfo }}
-  dt Have you been convicted?
+  dt Have you been convicted for an offence and been given a sentence?
   dd 
     | {{ vm.formData['steps.qualification'].convictions }}
     span(ng-if="vm.formData['steps.qualification'].convictions === 'Yes'") . {{ vm.formData['steps.qualification'].convictionsInfo }}
 //- disabilities
 h2.summary-heading
-  | Disability and special needs?
+  | Will you need help in court?
   a(ui-sref="steps.disabilities({type: 'edit'})", ui-sref-opts='{reload: true}') Change this
 dl.summary-table
-  dt Do you have any disability or impairment...?
+  dt Do you have a disability or special needs that mean you’ll need extra help carrying out your jury service?
   dd 
     | {{ vm.formData['steps.disabilities'].disabilities }}
     span(ng-if="vm.formData['steps.disabilities'].disabilities === 'Yes'")
@@ -79,10 +79,10 @@ dl.summary-table
         | . {{ vm.formData['steps.disabilities'].moreInfo }}
 //- occupation
 h2.summary-heading
-  | Occupation?
+  | Are you employed by the Criminal Justice System?
   a(ui-sref="steps.occupation({type: 'edit'})", ui-sref-opts='{reload: true}') Change this
 dl.summary-table
-  dt Have you been in the last 5 years...?
+  dt Do you work for the police, HM Prison Service or any prosecuting authority?
   dd 
     | {{ vm.formData['steps.occupation'].occupation }}
     span(ng-if="vm.formData['steps.occupation'].occupation === 'Yes'")
@@ -91,9 +91,9 @@ dl.summary-table
       |  {{ vm.formData['steps.occupation'].organisation }}
 //- confirm
 h2.summary-heading Submit your form
-p Please check all the information above is correct. This is the last opportunity to change the details of your form online.
+p I confirm the information I’ve given in this form is true and correct to the best of my knowledge and belief. I understand that if I knowingly provide false or misleading information I may be prosecuted.
 .form-group
-  input(type='submit', class='button', value='Submit form')
+  input(type='submit', class='button', value='I accept - send my application')
   ul
     li
-      a(href='', ng-click='vm.cancel()') Cancel and delete all details
+      a(href='', ng-click='vm.cancel()') Cancel and delete your details

@@ -1,26 +1,26 @@
-h1.heading-xlarge Your details
-
-//- Title
-.form-group
-  label.form-label(for='title') Title (optional)
-  input#title.form-control(type='text', name='title', ng-model='vm.formData.title')
+h1.heading-xlarge About you
+p Update your name and address if they are different from those shown.
 //- Full name
 .form-group
-  label.form-label(for='name') Full name
+  label.form-label(for='name') Name
   div(ng-hide='vm.editName')
     | {{ vm.formData.name }}
-    a.inline-edit(href='', ng-click='vm.editName = true') Edit
+    a.inline-edit(href='', ng-click='vm.editName = true') Change
   div(ng-show='vm.editName')
-    p.form-hint As shown on your Jury Summons
     input#name.form-control(type='text', name='name', ng-model='vm.formData.name', required)
 //- Address
 .form-group
   label.form-label(for='address') Address
   div(ng-hide='vm.editAddr')
     | {{ vm.formData.address }}
-    a.inline-edit(href='', ng-click='vm.editAddr = true') Edit
+    a.inline-edit(href='', ng-click='vm.editAddr = true') Change
   div(ng-show='vm.editAddr')
     textarea#address.form-control(name='address', rows='4', ng-model='vm.formData.address', required)
+p Fill in the boxes below.
+//- Title
+.form-group
+  label.form-label(for='title') Title (optional)
+  input#title.form-control.form-control-1-4(type='text', name='title', ng-model='vm.formData.title')
 //- Date of birth
 .form-group
   fieldset
@@ -42,7 +42,6 @@ h1.heading-xlarge Your details
       span.summary Help with date of birth
     .panel-indent
       p If you don&rsquo;t know your exact date of birth, use the one you put on official documents (for example, your passport or driving licence).
-      p If you can&rsquo;t provide your date of birth you&rsquo;ll have to send copies of identity documents through the post.
 //- Email address
 .form-group
   label.form-label(for='email') Email address (optional)
@@ -50,9 +49,9 @@ h1.heading-xlarge Your details
 .form-group
   details
     summary
-      span.summary Why do we ask for your email address?
+      span.summary Why are we asking for your email address?
     .panel-indent
-      p If you provide your email address we will communicate with you by email
+      p We can keep you up to date by email, if this is your preference.
 //- Phone
 .form-group
   label.form-label(for='phone') Phone

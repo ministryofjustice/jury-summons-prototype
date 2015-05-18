@@ -1,0 +1,10 @@
+.content-block .application-notice {
+  padding-top: 0.8em;
+  padding-left: 2.5em;
+}
+.content-block .application-notice p {
+  padding-left: 0;
+}
+.content-block .application-notice ul li {
+  font-weight: bold;
+}

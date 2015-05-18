@@ -4,6 +4,7 @@
   {{>includes/head}}
   <link href="/public/stylesheets/govuk/application.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="/public/stylesheets/govuk/static.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/public/stylesheets/govuk/shame.css" media="screen" rel="stylesheet" type="text/css" />
 {{/head}}
 
 {{$insideHeader}}
@@ -39,10 +40,17 @@
                 <div class="get-started-intro">
                   <p>Fill in the online form to arrange your jury service.</p>
                   <ul>
-                  <li>You’ll need your Juror Number from the letter we sent to you</li>
+                  <li>You’ll need your juror number from the letter we sent to you</li>
                   <li>You must arrange your service within 7 days of receiving your letter</li>
                   <li>You’ll be able to apply to delay the date or be excused if you have a genuine reason for doing so</li>
                   <li>Arranging your jury service will take less than 10  minutes</li>
+                  </ul>
+                </div>
+                <div class="application-notice help-notice">
+                  <p>It’s a criminal offence punishable by a fine of up to £1,000 if you:</p>
+                  <ul>
+                    <li>refuse to provide information to determine whether you’re qualified to be a juror</li>
+                    <li>give false information in order to get out of doing jury service, or you allow someone to do this on your behalf</li>
                   </ul>
                 </div>
                 <p id="get-started" class="get-started group">
@@ -73,7 +81,10 @@
           <div class="inner group related-other">
             <h2 id="parent-other">Elsewhere on GOV.UK</h2>
             <nav role="navigation" aria-labelledby="parent-other">
-              
+              <ul>
+                <li><a href="https://courttribunalfinder.service.gov.uk/search/">Find a court or tribunal</a></li>
+                <li><a href="https://www.gov.uk/courts">Criminal courts</a></li>
+              </ul>
             </nav>
           </div>
           <div class="inner group">
