@@ -56,8 +56,11 @@ module.exports = function(grunt){
       all: {
         dest: 'public/javascripts/lib.js',
         dependencies: {
-          'angular': 'jquery',
-          'angular-ui-router': 'angular'
+          'angular': ['jquery', 'lodash', 'momentjs'],
+          'angular-ui-router': 'angular',
+          'ngstorage': 'angular',
+          'angular-nl2br': 'angular',
+          'angular-sanitize': 'angular'
         }
       }
     },
