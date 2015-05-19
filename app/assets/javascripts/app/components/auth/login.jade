@@ -13,13 +13,13 @@ h1.heading-xlarge Arrange your jury service
       a(href='#postcode') Postcode - cannot be blank
 form.form(name='loginForm', ng-submit='vm.login(loginForm)', novalidate='')
   .form-group(ng-class="{'validation-error': loginForm.$submitted && !loginForm.jurorNumber.$valid}")
-    label.form-label-bold(for='juror-number')
+    label.form-label(for='juror-number')
       | Juror number
       span.validation-message(ng-show='loginForm.$submitted && loginForm.jurorNumber.$error.required') cannot be blank
       span.validation-message(ng-show='loginForm.$submitted && loginForm.jurorNumber.$error.valid') does not match what we have on record
     input#juror-number.form-control(type='text', name='jurorNumber', ng-model='vm.jurorNumber', required='')
   .form-group(ng-class="{'validation-error': loginForm.$submitted && !loginForm.postcode.$valid}")
-    label.form-label-bold(for='postcode')
+    label.form-label(for='postcode')
       | Postcode
       span.validation-message(ng-show='loginForm.$submitted && loginForm.postcode.$error.required') cannot be blank
       span.validation-message(ng-show='loginForm.$submitted && loginForm.postcode.$error.valid') does not match what we have on record

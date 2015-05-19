@@ -1,62 +1,65 @@
 h1.heading-xlarge About you
-p Update your name and address if they are different from those shown.
-//- Full name
-.form-group
-  label.form-label(for='name') Name
-  div(ng-hide='vm.editName')
-    | {{ vm.formData.name }}
-    a.inline-edit(href='', ng-click='vm.editName = true') Change
-  div(ng-show='vm.editName')
-    input#name.form-control(type='text', name='name', ng-model='vm.formData.name', required)
-//- Address
-.form-group
-  label.form-label(for='address') Address
-  div(ng-hide='vm.editAddr')
-    | {{ vm.formData.address }}
-    a.inline-edit(href='', ng-click='vm.editAddr = true') Change
-  div(ng-show='vm.editAddr')
-    textarea#address.form-control(name='address', rows='4', ng-model='vm.formData.address', required)
-p Fill in the boxes below.
-//- Title
-.form-group
-  label.form-label(for='title') Title (optional)
-  input#title.form-control.form-control-1-4(type='text', name='title', ng-model='vm.formData.title')
-//- Date of birth
-.form-group
-  fieldset
-    legend.form-label Date of birth
-    .form-date
-      p.form-hint For example, 31 3 1980
-      .form-group.form-group-day
-        label(for='dob-day') Day
-        input#dob-day.form-control(type='number', pattern='[0-9]*', min='0', max='31', name='dobDay', ng-model='vm.formData.dob.day', required)
-      .form-group.form-group-month
-        label(for='dob-month') Month
-        input#dob-month.form-control(type='number', pattern='[0-9]*', min='0', max='12', name='dobMonth', ng-model='vm.formData.dob.month', required)
-      .form-group.form-group-year
-        label(for='dob-year') Year
-        input#dob-year.form-control(type='number', pattern='[0-9]*', min='0', max='2014', name='dobYear', ng-model='vm.formData.dob.year', required)
-.form-group
-  details
-    summary
-      span.summary Help with date of birth
-    .panel-indent
-      p If you don&rsquo;t know your exact date of birth, use the one you put on official documents (for example, your passport or driving licence).
-//- Email address
-.form-group
-  label.form-label(for='email') Email address (optional)
-  input#email.form-control(type='email', name='email', ng-model='vm.formData.email')
-.form-group
-  details
-    summary
-      span.summary Why are we asking for your email address?
-    .panel-indent
-      p We can keep you up to date by email, if this is your preference.
-//- Phone
-.form-group
-  label.form-label(for='phone') Phone
-  input#phone.form-control(type='text', name='phone', ng-model='vm.formData.phone', required)
-//- Alternative phone
-.form-group
-  label.form-label(for='alternative-phone') Alternative phone (optional) 
-  input#alternative-phone.form-control(type='text', name='alternativePhone', ng-model='vm.formData.alternativePhone')
+fieldset
+  p.lede Update your name and address if they are different from those shown.
+  //- Full name
+  .form-group
+    label.form-label(for='name') Name
+    div(ng-hide='vm.editName')
+      | {{ vm.formData.name }}
+      a.inline-edit(href='', ng-click='vm.editName = true') Change
+    div(ng-show='vm.editName')
+      input#name.form-control(type='text', name='name', ng-model='vm.formData.name', required)
+  //- Address
+  div
+    label.form-label(for='address') Address
+    div(ng-hide='vm.editAddr')
+      | {{ vm.formData.address }}
+      a.inline-edit(href='', ng-click='vm.editAddr = true') Change
+    div(ng-show='vm.editAddr')
+      textarea#address.form-control(name='address', rows='4', ng-model='vm.formData.address', required)
+hr.line
+fieldset
+  p.lede Fill in the boxes below.
+  //- Title
+  .form-group
+    label.form-label(for='title') Title (optional)
+    input#title.form-control.form-control-1-4(type='text', name='title', ng-model='vm.formData.title')
+  //- Date of birth
+  .form-group-compound
+    fieldset
+      legend.form-label Date of birth
+      .form-date
+        p.form-hint For example, 31 3 1980
+        .form-group.form-group-day
+          label(for='dob-day') Day
+          input#dob-day.form-control(type='number', pattern='[0-9]*', min='0', max='31', name='dobDay', ng-model='vm.formData.dob.day', required)
+        .form-group.form-group-month
+          label(for='dob-month') Month
+          input#dob-month.form-control(type='number', pattern='[0-9]*', min='0', max='12', name='dobMonth', ng-model='vm.formData.dob.month', required)
+        .form-group.form-group-year
+          label(for='dob-year') Year
+          input#dob-year.form-control(type='number', pattern='[0-9]*', min='0', max='2014', name='dobYear', ng-model='vm.formData.dob.year', required)
+  .form-group
+    details
+      summary
+        span.summary Help with date of birth
+      .panel-indent
+        p If you don&rsquo;t know your exact date of birth, use the one you put on official documents (for example, your passport or driving licence).
+  //- Email address
+  .form-group-compound
+    label.form-label(for='email') Email address (optional)
+    input#email.form-control(type='email', name='email', ng-model='vm.formData.email')
+  .form-group
+    details
+      summary
+        span.summary Why are we asking for your email address?
+      .panel-indent
+        p We can keep you up to date by email, if this is your preference.
+  //- Phone
+  .form-group
+    label.form-label(for='phone') Phone
+    input#phone.form-control(type='text', name='phone', ng-model='vm.formData.phone', required)
+  //- Alternative phone
+  .form-group
+    label.form-label(for='alternative-phone') Alternative phone (optional) 
+    input#alternative-phone.form-control(type='text', name='alternativePhone', ng-model='vm.formData.alternativePhone')
