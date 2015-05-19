@@ -16,7 +16,8 @@
       {
         state: 'steps',
         config: {
-          url: '/apply',
+          url: '/complete',
+          abstract: true,
           templateUrl: 'components/steps/steps.html',
           controller: 'StepsController',
           controllerAs: 'vm'
@@ -25,7 +26,7 @@
       {
         state: 'steps.details',
         config: {
-          url: '/your-details/:type?',
+          url: '/about-you/:type?',
           views: {
             'form': {
               templateUrl: 'components/steps/personal-details.html'
@@ -36,7 +37,7 @@
       {
         state: 'steps.delay',
         config: {
-          url: '/delay/:type?',
+          url: '/delay-until-later-date/:type?',
           views: {
             'form': {
               templateUrl: 'components/steps/delay.html'
@@ -47,7 +48,7 @@
       {
         state: 'steps.excuse',
         config: {
-          url: '/excuse/:type?',
+          url: '/apply-to-be-excused/:type?',
           views: {
             'form': {
               templateUrl: 'components/steps/excuse.html'
@@ -58,7 +59,7 @@
       {
         state: 'steps.qualification',
         config: {
-          url: '/qualification/:type?',
+          url: '/are-you-qualified/:type?',
           views: {
             'form': {
               templateUrl: 'components/steps/qualification.html'
@@ -69,7 +70,7 @@
       {
         state: 'steps.disabilities',
         config: {
-          url: '/disabilities/:type?',
+          url: '/help-in-court/:type?',
           views: {
             'form': {
               templateUrl: 'components/steps/disabilities.html'

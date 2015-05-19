@@ -8,14 +8,13 @@ module.exports = {
     app.get('/', function (req, res) {
       res.render('govuk-start-page', {
         env: process.env['NODE_ENV'], 
-        debug: process.env['DEBUG'],
-        serviceUrl: process.env['SERVICE_URL'] || 'http://localhost:4000'
+        debug: process.env['DEBUG']
       });
     });
 
     app.get('*', function (req, res) {
       res.render('layout', {
-        env: process.env['NODE_ENV'], 
+        env: process.env['NODE_ENV'],
         debug: process.env['DEBUG'],
         jurors: process.env['JURORS']
       });
