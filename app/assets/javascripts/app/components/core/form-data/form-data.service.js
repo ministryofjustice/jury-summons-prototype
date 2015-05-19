@@ -40,25 +40,21 @@
 
     function getAge(dobObj) {
       var dob = getData('steps.details').dob;
-      var birthDate;
+      var date, m;
 
       if (!dob) {
         return;
       }
 
-      birthDate = moment({
-        day: dob.day,
-        month: dob.month,
-        year: dob.year
-      });
+      date = new Date(dob.year + ' ' + dob.month + ' ' + dob.day);
 
-      return moment().diff(birthDate, 'years');
+      m = moment(date);
+
+      return moment().diff(m, 'years');
     }
 
     function validAge () {
       var age = getAge();
-
-      // console.log(age);
 
       if (typeof age === 'undefined' || (age && age >= 18 && age <= 70)) {
         return true;

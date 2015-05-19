@@ -15,7 +15,7 @@
     return [{
       state: 'profile',
       config: {
-        url: '/',
+        url: '/your-jury-service',
         templateUrl: 'components/profile/profile.html',
         controller: 'ProfileController',
         controllerAs: 'vm',

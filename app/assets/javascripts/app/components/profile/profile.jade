@@ -4,8 +4,8 @@ p You have been selected to go to court on the date and time below.
   p.bold-medium
     span(ng-bind='vm.juror.court.name')
     br
-    span(ng-bind-html='vm.juror.court.address|nl2br')
-  p.bold-medium {{ vm.juror.datetime | date:'H:mma on EEEE d MMMM yyyy'}}
+    span(ng-bind='vm.juror.court.address')
+  p.bold-medium {{ vm.juror.datetime | date:'HH.mma on EEEE d MMMM yyyy'}}
   p 
     | {{ vm.juror.name }}
     br
