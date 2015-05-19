@@ -8,20 +8,6 @@
     .constant('_', _)
     .constant('moment', moment)
     // app constants
-    .constant('JURORS', [
-      {
-        id: '54291234',
-        postcode: 'SW11AA',
-        name: 'John Smith',
-        address: 'Buckingham Palace,\nLondon,\nSW11AA',
-        court: {
-          name: 'The Crown Court at Southwark',
-          address: '1 English Ground\nLondon SE19 3TS',
-          url: 'https://courttribunalfinder.service.gov.uk/courts/southwark-crown-court'
-        },
-        datetime: '2015-09-20T09:15'
-      }
-    ])
     .constant('SAMPLE_ANSWERS', {
       'steps.details': {
         title: 'Mr',

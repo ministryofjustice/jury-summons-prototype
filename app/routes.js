@@ -12,7 +12,8 @@ module.exports = {
     app.get('*', function (req, res) {
       res.render('layout', {
         env: process.env['NODE_ENV'], 
-        debug: process.env['DEBUG']
+        debug: process.env['DEBUG'],
+        jurors: process.env['JURORS']
       });
     });
 
