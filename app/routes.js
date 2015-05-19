@@ -1,7 +1,7 @@
 module.exports = {
   bind : function (app) {
 
-    app.get('/jury-service', function (req, res) {
+    app.get('/', function (req, res) {
       res.render('govuk-start-page', {
         env: process.env['NODE_ENV'], 
         debug: process.env['DEBUG'],
