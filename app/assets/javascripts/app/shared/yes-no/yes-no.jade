@@ -1,8 +1,8 @@
-fieldset.form-group
+fieldset.form-group-block
   legend.form-label {{ vm.label }}
-  p.form-hint(ng-if='vm.helpLink')
+  p.form-hint(ng-if='vm.helpState')
     | Not sure?&nbsp;
-    a(href='{{ vm.helpLink }}') Get more details
+    a(ui-sref='{{ vm.helpState }}') Get more details
   p.form-hint(ng-if='vm.hint') {{ vm.hint }}
   .inline
     label.block-label(for='{{ vm.name }}--yes')

@@ -1,15 +1,15 @@
 h1.heading-xlarge Details of your jury service
-p You have been selected to go to court on the date and time below.
-.panel-indent.large.panel-background
-  p.bold-medium
-    span(ng-bind='vm.juror.court.name')
-    br
-    span(ng-bind='vm.juror.court.address')
-  p.bold-medium {{ vm.juror.datetime | date:'HH.mma on EEEE d MMMM yyyy'}}
+p.lede You have been selected to go to court on the date and time below.
+.panel-indent
   p 
     | {{ vm.juror.name }}
     br
     | {{ vm.juror.address }}
+  p.bold-small
+    span(ng-bind='vm.juror.court.name')
+    br
+    span(ng-bind='vm.juror.court.address')
+  p.bold-small {{ vm.juror.datetime | date:'HH.mma on EEEE d MMMM yyyy'}}
 hr.line
 form.form(name='profileForm', ng-submit='vm.submit()', novalidate)
   fieldset
@@ -17,16 +17,20 @@ form.form(name='profileForm', ng-submit='vm.submit()', novalidate)
     .form-group
       label.block-label(for='accept')
         input(type='radio', value='accept', id='accept', name='response', ng-model='vm.formData.response')
-        | Accept this date and complete your form
+        strong Accept this date and complete your form
       label.block-label(for='delay')
         input(type='radio', value='delay', id='delay', name='response', ng-model='vm.formData.response')
-        | Delay until a later date
+        strong Delay until a later date
+        br
+        span You can rearrange your jury service if you can’t make the date we’ve given you.
       label.block-label(for='excuse')
         input(type='radio', value='excuse', id='excuse', name='response', ng-model='vm.formData.response')
-        | Apply to be excused
+        strong Apply to be excused
+        br
+        span We can only release you from jury service if you have a good reason why you can’t do it in the next 12 months.
   fieldset
-    .form-group
-      input.button.button-get-started(type='submit', value='Continue')
+    .form-group-compound
+      input.button(type='submit', value='Continue')
 hr.line
 section
   h2.bold-medium Get details about the court

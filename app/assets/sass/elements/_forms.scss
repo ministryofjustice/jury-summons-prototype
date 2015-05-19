@@ -9,7 +9,6 @@ fieldset {
 
 // Form group is used to wrap label and input pairs
 .form-group {
-  float: left;
   width: 100%;
   @extend %contain-floats;
   margin-bottom: $gutter-half;
@@ -22,6 +21,13 @@ fieldset {
   margin-bottom: 10px;
   @include media(tablet) {
     margin-bottom: 20px;
+  }
+}
+
+.form-group-block {
+  margin-bottom: 20px;
+  @include media(tablet) {
+    margin-bottom: 45px;
   }
 }
 
@@ -76,7 +82,7 @@ fieldset {
   color: $secondary-text-colour;
   margin-bottom: 5px;
   @include media (tablet) {
-    margin-top: 8px;
+    margin-top: 0;
   }
 }
 

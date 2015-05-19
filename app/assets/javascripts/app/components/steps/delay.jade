@@ -5,10 +5,10 @@ ul.list-bullet
   li your absence will cause serious problems at work
 p You will only be able to delay once.
 .form-group
-  label.form-label-bold(for='reason') Please explain why you want to delay your jury service
+  label.form-label(for='reason') Please explain why you want to delay your jury service
   textarea#reason.form-control.form-control--full(name='reason', rows='6', ng-model='vm.formData.reason', required)
 .form-group
-  label.form-label-bold(for='availableDates') Please give dates in the next 12 months when you’ll be available for jury service
+  label.form-label(for='availableDates') Please give dates in the next 12 months when you’ll be available for jury service
   p.form-hint Make sure you choose dates when you’re free for two weeks
   textarea#availableDates.form-control.form-control--full(name='availableDates', rows='6', ng-model='vm.formData.availableDates', required)
 

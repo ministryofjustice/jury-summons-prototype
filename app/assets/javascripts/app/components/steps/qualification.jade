@@ -1,5 +1,5 @@
 h1.heading-xlarge Are you qualified for jury service?
-p There are some situations where you may not be able to do jury service.
+p.lede There are some situations where you may not be able to do jury service.
 yesno(
   model='vm.formData.residence',
   name='residence',
@@ -17,7 +17,7 @@ yesno(
   model='vm.formData.mentalHealth',
   name='mentalHealth',
   label='Are you liable to be, or are you being, detained or treated under the Mental Health Act 1983 or lack capacity as defined in the Mental Capacity Act 2005?',
-  help-link='http://google.co.uk'
+  help-state='help.mentalCapacity'
 )
 conditionalinfo(
   model='vm.formData.mentalHealthInfo',
@@ -42,7 +42,7 @@ yesno(
   model='vm.formData.convictions',
   name='convictions',
   label='Have you been convicted for an offence and been given a sentence?',
-  help-link='http://google.co.uk'
+  help-state='help.convictions'
 )
 conditionalinfo(
   model='vm.formData.convictionsInfo',
