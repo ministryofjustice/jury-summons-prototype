@@ -6,6 +6,7 @@
       'app.core',
       'app.auth',
       'app.profile',
+      'app.help',
       'app.steps',
       'app.ineligibleDob',
       'app.confirmation',
