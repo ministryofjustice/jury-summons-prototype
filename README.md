@@ -1,14 +1,6 @@
-# GOV.UK Prototyping Kit
+# Arrange Your Jury Service
 
-The kit provides a simple way to make interactive prototypes that look like pages on GOV.UK. These prototypes can be used to show ideas to people you work with, and to do user research.
-
-It's built on the [Express](http://expressjs.com/) framework, and uses these GOV.UK resources:
-
-- [GOV.UK template](https://github.com/alphagov/govuk_template)
-- [GOV.UK front end toolkit](https://github.com/alphagov/govuk_frontend_toolkit)
-- [GOV.UK elements](https://github.com/alphagov/govuk_elements)
-
-Read the [project principles](docs/principles.md).
+This is the first version of a digital prototype for the Jury Summons service. It is based around the [GOV.UK Prototyping Kit](https://github.com/alphagov/govuk_prototype_kit/blob/909509a077a1511f184989e7139bbaa52a1b1dc9/README.md) to help with the GOV.UK design patterns.
 
 ## Requirements
 
@@ -31,16 +23,17 @@ Install Node.js (see requirements)
 #### Clone this repo
 
 ```
-git clone git@github.com:alphagov/govuk_prototype_kit.git
+git clone git@github.com:ministryofjustice/jury-summons-prototype.git
 ```
 
 #### Install dependencies
 
 ```
 npm install
+bower install
 ```
 
-This will install folders containing programs described by the package.json file to a folder called `node_modules`.
+This will install folders containing programs described by the package.json file to a folder called `node_modules` and any third party libraries into a folder called `bower_components`.
 
 #### Run the app
 
@@ -52,20 +45,24 @@ Go to [localhost:3000](http://localhost:3000) in your browser.
 
 #### Hot reload
 
-Any code changes should update in the browser without you restarting the app.
+To view any code changes automatically in the browser without you restarting the app view it at [localhost:4000](http://localhost:4000).
 
-The app recompiles app/assets/stylesheets/application.scss everytime changes are observed.
+The reload is controlled by [Browsersync](http://www.browsersync.io/).
 
-## Documentation
+## App structure
 
-Find out how to work with the prototyping application.
+The main app is an [AngularJS](https://angularjs.org/) application. It is written using a combination of best practices described in this [blog post](https://scotch.io/tutorials/angularjs-best-practices-directory-structure) and techniques in a [styleguide](https://github.com/johnpapa/angular-styleguide#controllers) by [@john_papa](https://twitter.com/john_papa).
 
-* [Getting started](docs/getting-started.md) (Read this first)
-* [Creating routes](docs/creating-routes.md)
-* [Making pages](docs/making-pages.md)
-* [Writing CSS](docs/writing-css.md)
-* [Deploying (getting your work online)](docs/deploying.md)
-* [Tips and Tricks](docs/tips-and-tricks.md)
+#### GOV.UK start page
 
-This project is built on top of Express, the idea is that it is straightforward to create simple static pages out of the box. However, you're not limited to that - more dynamic sites can be built with more understanding of Express. Here's a good [Express tutorial.](http://code.tutsplus.com/tutorials/introduction-to-express--net-33367)
+A GOV.UK start page was mocked up to allow content to be tested during round of user research. This file can be found here `app/views/govuk-start-page.html` and has its own set of assets.
 
+#### Debug toolbar
+
+When developing locally a debug toolbar is present to allow you to quickly mock a login and populate the various possible paths:
+
+- Accept
+- Apply to delay
+- Apply for excusal 
+
+It will use a default juror but to set a custom list of jurors for a testing session you will need to add them under an environment variable name `JURORS`. For an example structure of the juror object see `jurors.sample.json`.
