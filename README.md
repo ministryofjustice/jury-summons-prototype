@@ -65,4 +65,16 @@ When developing locally a debug toolbar is present to allow you to quickly mock 
 - Apply to delay
 - Apply for excusal 
 
-It will use a default juror but to set a custom list of jurors for a testing session you will need to add them under an environment variable name `JURORS`. For an example structure of the juror object see `jurors.sample.json`.
+To set a custom list of jurors for a testing session you will need to add them under an environment variable named `JURORS`. If this is not set it will use a default dummy juror for debug actions.
+
+For an example structure of the juror object see `jurors-sample.json`.
+
+#### Hosting
+
+The app is currenlty hosted on [Heroku](http://heroku.com/).
+
+There is a [production environment](https://jury-prototype.herokuapp.com/) which is automatically deployed on changes to the `master` branch and a [development environment](https://jury-prototype-dev.herokuapp.com/) which is automatically deployed on changes to the `develop` branch.
+
+Having two environments allows changes to be made to the development environment whilst the production environment might be being used for a user testing session.
+
+The site may be protected by a username and password. If you have access to the heroku app these will be stored as environment variables and can be checked by running the command `heroku config` if you have the [heroku toolbelt](https://toolbelt.heroku.com/) installed.
